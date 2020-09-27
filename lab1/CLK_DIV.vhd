@@ -3,13 +3,13 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity CLK_DIV is
-    port (clk_in: in std_logic;
-          clk_out: out std_logic);
+    port (clk    : in  STD_LOGIC;
+          clk_out: out STD_LOGIC);
 end entity CLK_DIV;
 
 architecture bhv of CLK_DIV is
-signal count: integer := 1;
-signal flag: std_logic := '0';
+signal count: INTEGER := 1;
+signal flag: STD_LOGIC := '0';
 begin
     process(clk)
     begin
