@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../ADDR_CNTR.vhd" \
+"../../../../../CLK_DIV.vhd" \
+"../../../../../LED_DRIVER.vhd" \
+"../../../../../MEM.vhd" \
+"../../../../../teshbench.vhd" \
+
+# Do not sort compile order
+nosort
