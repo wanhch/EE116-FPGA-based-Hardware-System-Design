@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Sep 28 22:38:28 2020
-# Process ID: 12620
+# Start of session at: Wed Sep 30 15:42:32 2020
+# Process ID: 9476
 # Current directory: D:/Courses/FPGA/lab1/lab1/lab1.runs/impl_1
 # Command line: vivado.exe -log LED_DRIVER.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source LED_DRIVER.tcl -notrace
 # Log file: D:/Courses/FPGA/lab1/lab1/lab1.runs/impl_1/LED_DRIVER.vdi

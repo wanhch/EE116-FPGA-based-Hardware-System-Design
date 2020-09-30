@@ -8,9 +8,9 @@ end teshbench;
 
 architecture Behavioral of teshbench is
 component LED_DRIVER is
-    generic(addrwidth: INTEGER := 4);
+--    generic(addrwidth: INTEGER := 4);
     port(CLK_50: in  STD_LOGIC;
-         DATA_in  : in  unsigned(addrwidth-1 downto 0);
+         DATA_in  : in  unsigned(3 downto 0);
          CE    : in  STD_LOGIC;
          LOAD  : in  STD_LOGIC;
          UPDN  : in  STD_LOGIC;

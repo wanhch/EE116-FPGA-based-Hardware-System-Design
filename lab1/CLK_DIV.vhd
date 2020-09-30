@@ -14,8 +14,8 @@ begin
     process(clk)
     begin
         if (rising_edge(clk)) then
-            if (count = 25) then
-      --      if (count = 25000000) then
+      --      if (count = 25) then
+            if (count = 25000000) then
                 count <= 1;
                 flag <= NOT flag;
             else

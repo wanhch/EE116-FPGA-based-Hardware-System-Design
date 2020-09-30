@@ -3,7 +3,8 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity MEM is
-    port(addr: in  unsigned(3 downto 0);
+    generic (addrwidth: INTEGER := 4);
+    port(addr: in  unsigned(addrwidth-1 downto 0);
          data: out unsigned(7 downto 0));
 end entity MEM;
 

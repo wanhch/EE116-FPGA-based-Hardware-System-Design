@@ -14,46 +14,93 @@ Command: synth_design -top LED_DRIVER -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 12528
+INFO: [Synth 8-7075] Helper process launched with PID 10936
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1081.109 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'LED_DRIVER' [D:/Courses/FPGA/lab1/LED_DRIVER.vhd:16]
-	Parameter addrwidth bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'CLK_DIV' declared at 'D:/Courses/FPGA/lab1/CLK_DIV.vhd:5' bound to instance 'G1' of component 'CLK_DIV' [D:/Courses/FPGA/lab1/LED_DRIVER.vhd:38]
+INFO: [Synth 8-3491] module 'CLK_DIV' declared at 'D:/Courses/FPGA/lab1/CLK_DIV.vhd:5' bound to instance 'G1' of component 'CLK_DIV' [D:/Courses/FPGA/lab1/LED_DRIVER.vhd:39]
 INFO: [Synth 8-638] synthesizing module 'CLK_DIV' [D:/Courses/FPGA/lab1/CLK_DIV.vhd:10]
 WARNING: [Synth 8-614] signal 'flag' is read in the process but is not in the sensitivity list [D:/Courses/FPGA/lab1/CLK_DIV.vhd:14]
 INFO: [Synth 8-256] done synthesizing module 'CLK_DIV' (1#1) [D:/Courses/FPGA/lab1/CLK_DIV.vhd:10]
 	Parameter addrwidth bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'ADDR_CNTR' declared at 'D:/Courses/FPGA/lab1/ADDR_CNTR.vhd:5' bound to instance 'G2' of component 'ADDR_CNTR' [D:/Courses/FPGA/lab1/LED_DRIVER.vhd:39]
+INFO: [Synth 8-3491] module 'ADDR_CNTR' declared at 'D:/Courses/FPGA/lab1/ADDR_CNTR.vhd:5' bound to instance 'G2' of component 'ADDR_CNTR' [D:/Courses/FPGA/lab1/LED_DRIVER.vhd:40]
 INFO: [Synth 8-638] synthesizing module 'ADDR_CNTR' [D:/Courses/FPGA/lab1/ADDR_CNTR.vhd:16]
 	Parameter addrwidth bound to: 4 - type: integer 
-WARNING: [Synth 8-614] signal 'RST' is read in the process but is not in the sensitivity list [D:/Courses/FPGA/lab1/ADDR_CNTR.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'ADDR_CNTR' (2#1) [D:/Courses/FPGA/lab1/ADDR_CNTR.vhd:16]
-INFO: [Synth 8-3491] module 'MEM' declared at 'D:/Courses/FPGA/lab1/MEM.vhd:5' bound to instance 'G3' of component 'MEM' [D:/Courses/FPGA/lab1/LED_DRIVER.vhd:41]
-INFO: [Synth 8-638] synthesizing module 'MEM' [D:/Courses/FPGA/lab1/MEM.vhd:10]
-INFO: [Synth 8-256] done synthesizing module 'MEM' (3#1) [D:/Courses/FPGA/lab1/MEM.vhd:10]
+	Parameter addrwidth bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'MEM' declared at 'D:/Courses/FPGA/lab1/MEM.vhd:5' bound to instance 'G3' of component 'MEM' [D:/Courses/FPGA/lab1/LED_DRIVER.vhd:42]
+INFO: [Synth 8-638] synthesizing module 'MEM' [D:/Courses/FPGA/lab1/MEM.vhd:11]
+	Parameter addrwidth bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'MEM' (3#1) [D:/Courses/FPGA/lab1/MEM.vhd:11]
 INFO: [Synth 8-256] done synthesizing module 'LED_DRIVER' (4#1) [D:/Courses/FPGA/lab1/LED_DRIVER.vhd:16]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1103.238 ; gain = 22.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1103.238 ; gain = 22.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1103.238 ; gain = 22.129
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1103.238 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'DATA_in[3]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:18]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'DATA_in[2]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:20]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'DATA_in[1]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:22]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'DATA_in[0]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:24]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LED[7]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:26]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LED[6]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:30]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LED[5]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:34]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LED[4]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:38]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LED[3]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:42]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LED[2]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:46]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LED[1]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:50]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LED[0]' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:54]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'CE' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:58]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'CLK_50' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:60]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'LOAD' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:62]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'RST' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:64]
+CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'UPDN' [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc:66]
+Finished Parsing XDC File [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Courses/FPGA/lab1/lab1/lab1.srcs/constrs_1/new/LED_DRIVER.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/LED_DRIVER_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/LED_DRIVER_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1180.379 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1180.379 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1180.379 ; gain = 99.270
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1180.379 ; gain = 99.270
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-No constraint files found.
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1180.379 ; gain = 99.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1180.379 ; gain = 99.270
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -82,25 +129,29 @@ BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1180.379 ; gain = 99.270
 ---------------------------------------------------------------------------------
-No constraint files found.
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1207.816 ; gain = 126.707
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1207.891 ; gain = 126.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1227.516 ; gain = 146.406
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -118,37 +169,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1234.270 ; gain = 153.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1234.270 ; gain = 153.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1234.270 ; gain = 153.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1234.270 ; gain = 153.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1234.270 ; gain = 153.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1234.270 ; gain = 153.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -166,43 +217,37 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     1|
 |2     |CARRY4 |     8|
-|3     |LUT3   |     4|
-|4     |LUT4   |    14|
-|5     |LUT5   |     4|
-|6     |LUT6   |     3|
-|7     |FDRE   |    37|
-|8     |IBUF   |     9|
-|9     |OBUF   |     8|
+|3     |LUT1   |     1|
+|4     |LUT2   |     1|
+|5     |LUT3   |     3|
+|6     |LUT4   |    12|
+|7     |LUT5   |     6|
+|8     |LUT6   |     2|
+|9     |FDCE   |     4|
+|10    |FDRE   |    33|
+|11    |IBUF   |     9|
+|12    |OBUF   |     8|
 +------+-------+------+
-
-Report Instance Areas: 
-+------+---------+----------+------+
-|      |Instance |Module    |Cells |
-+------+---------+----------+------+
-|1     |top      |          |    88|
-|2     |  G1     |CLK_DIV   |    52|
-|3     |  G2     |ADDR_CNTR |    18|
-+------+---------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1234.270 ; gain = 153.160
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1234.270 ; gain = 76.020
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1234.270 ; gain = 153.160
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1079.355 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1245.387 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1125.160 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1251.613 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-23 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+26 Infos, 1 Warnings, 17 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 1125.160 ; gain = 45.805
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 1251.613 ; gain = 170.504
 INFO: [Common 17-1381] The checkpoint 'D:/Courses/FPGA/lab1/lab1/lab1.runs/synth_1/LED_DRIVER.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file LED_DRIVER_utilization_synth.rpt -pb LED_DRIVER_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Sep 28 22:38:02 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 30 15:42:23 2020...

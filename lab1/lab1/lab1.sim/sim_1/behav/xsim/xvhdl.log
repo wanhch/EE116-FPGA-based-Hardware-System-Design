@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Courses/FPGA/lab1/MEM.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'MEM'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Courses/FPGA/lab1/teshbench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'teshbench'

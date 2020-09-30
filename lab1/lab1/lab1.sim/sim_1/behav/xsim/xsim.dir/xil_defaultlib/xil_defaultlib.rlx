@@ -2,8 +2,8 @@
 2020.1
 May 27 2020
 20:09:33
-D:/Courses/FPGA/lab1/ADDR_CNTR.vhd,1601299438,vhdl,,,,addr_cntr,,,,,,,,
+D:/Courses/FPGA/lab1/ADDR_CNTR.vhd,1601357356,vhdl,,,,addr_cntr,,,,,,,,
 D:/Courses/FPGA/lab1/CLK_DIV.vhd,1601298258,vhdl,,,,clk_div,,,,,,,,
-D:/Courses/FPGA/lab1/LED_DRIVER.vhd,1601303385,vhdl,,,,led_driver,,,,,,,,
-D:/Courses/FPGA/lab1/MEM.vhd,1601303791,vhdl,,,,mem,,,,,,,,
-D:/Courses/FPGA/lab1/teshbench.vhd,1601303494,vhdl,,,,teshbench,,,,,,,,
+D:/Courses/FPGA/lab1/LED_DRIVER.vhd,1601450887,vhdl,,,,led_driver,,,,,,,,
+D:/Courses/FPGA/lab1/MEM.vhd,1601449535,vhdl,,,,mem,,,,,,,,
+D:/Courses/FPGA/lab1/teshbench.vhd,1601450925,vhdl,,,,teshbench,,,,,,,,

@@ -16,9 +16,11 @@ end entity ADDR_CNTR;
 architecture bhv of ADDR_CNTR is
     signal count: unsigned(addrwidth-1 downto 0);
 begin
-    process(clk)
+    process(clk, RST)
     begin
-        if (rising_edge(clk) and RST = '0') then
+        if (RST = '1') then
+            count <= "0000";
+        elsif (rising_edge(clk)) then
             if (LOAD = '1') then
                 count <= DATA;
             elsif (CE = '1') then

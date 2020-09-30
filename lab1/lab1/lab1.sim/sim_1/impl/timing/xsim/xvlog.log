@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Courses/FPGA/lab1/lab1/lab1.sim/sim_1/impl/timing/xsim/teshbench_time_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ADDR_CNTR
+INFO: [VRFC 10-311] analyzing module CLK_DIV
+INFO: [VRFC 10-311] analyzing module LED_DRIVER
+INFO: [VRFC 10-311] analyzing module glbl
