@@ -3,8 +3,7 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
  
 entity CONTROL is
-    generic (nq: INTEGER);
-    generic (nm: INTEGER);
+    generic (nq, nm: INTEGER);
     port (Multiplier: in  unsigned(nq-1 downto 0);
           START     : in  STD_LOGIC;
           A_I       : in  unsigned(nm downto 0);
@@ -35,19 +34,19 @@ begin
                 DONE <= '0';
                 count := 0;
                 if (STD_LOGIC_VECTOR(Q_I)(0) = '1') then
-                    AD <= 1;
-                    SH <= 0;
+                    AD <= '1';
+                    SH <= '0';
                     state := add;
                 elsif (STD_LOGIC_VECTOR(Q_I)(0) = '0') then
-                    AD <= 0;
-                    SH <= 1;
+                    AD <= '0';
+                    SH <= '1';
                     state := shift;
                 end if;
             when add =>
                 A_O <= A_I;
                 Q_O <= Q_I;
-                AD <= 0;
-                SH <= 1;
+                AD <= '0';
+                SH <= '1';
                 state := shift;
             when shift =>
                 count:= count + 1;
@@ -58,17 +57,19 @@ begin
                     state := halt;
                 else
                     if (STD_LOGIC_VECTOR(Q_I)(0) = '1') then
-                        AD <= 1;
-                        SH <= 0;
+                        AD <= '1';
+                        SH <= '0';
                         state := add;
                     elsif (STD_LOGIC_VECTOR(Q_I)(0) = '0') then
-                        AD <= 0;
-                        SH <= 1;
+                        AD <= '0';
+                        SH <= '1';
                         state := shift;
                     end if;
                 end if;
             when halt =>
                 DONE <= '1';
+                AD <= '0';
+                SH <= '0';
             end case;
         end if;
     end process;

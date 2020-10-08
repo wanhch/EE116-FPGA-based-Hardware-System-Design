@@ -3,8 +3,7 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity SHIFT is
-    generic (nq: INTEGER);
-    generic (nm: INTEGER);
+    generic (nq, nm: INTEGER);
     port(A_I  : in  unsigned(nm downto 0);
          Q_I  : in  unsigned(nq-1 downto 0);
          START: in  STD_LOGIC;

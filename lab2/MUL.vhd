@@ -15,8 +15,7 @@ end entity MUL;
 
 architecture bhv of MUL is
     component CONTROL is
-        generic (nq: INTEGER);
-        generic (nm: INTEGER);
+        generic (nq, nm: INTEGER);
         port (Multiplier: in  unsigned(nq-1 downto 0);
               START     : in  STD_LOGIC;
               A_I       : in  unsigned(nm downto 0);
@@ -30,16 +29,14 @@ architecture bhv of MUL is
               AD        : out STD_LOGIC);
     end component CONTROL;
     component ADD is
-        generic (nq: INTEGER);
-        generic (nm: INTEGER);
+        generic (nq, nm: INTEGER);
         port(A_I  : in  unsigned(nm downto 0);
              M    : in  unsigned(nm-1 downto 0);
              START: in  STD_LOGIC;
              A_O  : out unsigned(nm downto 0));
     end component ADD;
     component SHIFT is
-        generic (nq: INTEGER);
-        generic (nm: INTEGER);
+        generic (nq, nm: INTEGER);
         port(A_I  : in  unsigned(nm downto 0);
              Q_I  : in  unsigned(nq-1 downto 0);
              START: in  STD_LOGIC;
