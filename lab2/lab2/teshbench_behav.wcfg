@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="teshbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="teshbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="133838fs"></ZoomStartTime>
+      <ZoomEndTime time="199539fs"></ZoomEndTime>
+      <Cursor1Time time="153838fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="92"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/teshbench/uut/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/multiplicand_sig" type="array">
+      <obj_property name="ElementShortName">multiplicand_sig[3:0]</obj_property>
+      <obj_property name="ObjectShortName">multiplicand_sig[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/multiplier_sig" type="array">
+      <obj_property name="ElementShortName">multiplier_sig[3:0]</obj_property>
+      <obj_property name="ObjectShortName">multiplier_sig[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/product_sig" type="array">
+      <obj_property name="ElementShortName">product_sig[7:0]</obj_property>
+      <obj_property name="ObjectShortName">product_sig[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/product_ref" type="array">
+      <obj_property name="ElementShortName">product_ref[7:0]</obj_property>
+      <obj_property name="ObjectShortName">product_ref[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/Start" type="logic">
+      <obj_property name="ElementShortName">Start</obj_property>
+      <obj_property name="ObjectShortName">Start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/Done" type="logic">
+      <obj_property name="ElementShortName">Done</obj_property>
+      <obj_property name="ObjectShortName">Done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G1/A_I" type="array">
+      <obj_property name="ElementShortName">A_I[4:0]</obj_property>
+      <obj_property name="ObjectShortName">A_I[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G1/A_O" type="array">
+      <obj_property name="ElementShortName">A_O[4:0]</obj_property>
+      <obj_property name="ObjectShortName">A_O[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G1/Multiplier" type="array">
+      <obj_property name="ElementShortName">Multiplier[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Multiplier[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G1/Q_I" type="array">
+      <obj_property name="ElementShortName">Q_I[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_I[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G1/Q_O" type="array">
+      <obj_property name="ElementShortName">Q_O[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_O[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/add_flag" type="logic">
+      <obj_property name="ElementShortName">add_flag</obj_property>
+      <obj_property name="ObjectShortName">add_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/shift_flag" type="logic">
+      <obj_property name="ElementShortName">shift_flag</obj_property>
+      <obj_property name="ObjectShortName">shift_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G2/START" type="logic">
+      <obj_property name="ElementShortName">START</obj_property>
+      <obj_property name="ObjectShortName">START</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G2/PASS" type="logic">
+      <obj_property name="ElementShortName">PASS</obj_property>
+      <obj_property name="ObjectShortName">PASS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G2/RESET" type="logic">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G2/M" type="array">
+      <obj_property name="ElementShortName">M[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G2/A_I" type="array">
+      <obj_property name="ElementShortName">A_I[4:0]</obj_property>
+      <obj_property name="ObjectShortName">A_I[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G2/A_O" type="array">
+      <obj_property name="ElementShortName">A_O[4:0]</obj_property>
+      <obj_property name="ObjectShortName">A_O[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G3/RESET" type="logic">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G3/START" type="logic">
+      <obj_property name="ElementShortName">START</obj_property>
+      <obj_property name="ObjectShortName">START</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G3/A_I" type="array">
+      <obj_property name="ElementShortName">A_I[4:0]</obj_property>
+      <obj_property name="ObjectShortName">A_I[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G3/Q_I" type="array">
+      <obj_property name="ElementShortName">Q_I[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_I[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G3/A_O" type="array">
+      <obj_property name="ElementShortName">A_O[4:0]</obj_property>
+      <obj_property name="ObjectShortName">A_O[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/G3/Q_O" type="array">
+      <obj_property name="ElementShortName">Q_O[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_O[3:0]</obj_property>
+   </wvobject>
+</wave_config>
