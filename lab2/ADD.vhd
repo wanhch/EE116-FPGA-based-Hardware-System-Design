@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity ADD is
-    generic (nq, nm: INTEGER RANGE 1 TO 15);
+    generic (nq, nm: INTEGER);
     port(A_I  : in  unsigned(nm downto 0);
          M    : in  STD_LOGIC_VECTOR(nm-1 downto 0);
          START: in  STD_LOGIC;

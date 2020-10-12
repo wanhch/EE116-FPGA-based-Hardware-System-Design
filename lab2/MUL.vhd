@@ -3,8 +3,8 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity MUL is
-    generic(nq: INTEGER RANGE 1 TO 15;
-            nm: INTEGER RANGE 1 TO 15);
+    generic(nq: INTEGER := 4;
+            nm: INTEGER := 4);
     port(Multiplicand: in  STD_LOGIC_VECTOR(nm-1 downto 0);
          Multiplier  : in  STD_LOGIC_VECTOR(nq-1 downto 0);
          Start       : in  STD_LOGIC;
@@ -15,8 +15,8 @@ end entity MUL;
 
 architecture bhv of MUL is
     component CONTROL is
-        generic (nq: INTEGER RANGE 1 TO 15;
-                 nm: INTEGER RANGE 1 TO 15);
+        generic (nq: INTEGER;
+                 nm: INTEGER);
         port (Multiplier: in  STD_LOGIC_VECTOR(nq-1 downto 0);
               START     : in  STD_LOGIC;
               PRODUCT   : out STD_LOGIC_VECTOR(nq+nm-1 downto 0); 
@@ -32,7 +32,7 @@ architecture bhv of MUL is
               AD        : out STD_LOGIC);
     end component CONTROL;
     component ADD is
-        generic (nq, nm: INTEGER RANGE 1 TO 15);
+        generic (nq, nm: INTEGER);
         port(A_I  : in  UNSIGNED(nm downto 0);
              M    : in  STD_LOGIC_VECTOR(nm-1 downto 0);
              START: in  STD_LOGIC;

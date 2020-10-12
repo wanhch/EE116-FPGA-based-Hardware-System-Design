@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity SHIFT is
-    generic (nq, nm: INTEGER RANGE 1 TO 15);
+    generic (nq, nm: INTEGER);
     port(A_I  : in  UNSIGNED(nm downto 0);
          Q_I  : in  UNSIGNED(nq-1 downto 0);
          RESET: in  STD_LOGIC;
@@ -18,7 +18,6 @@ begin
     variable A_Q: STD_LOGIC_VECTOR((nm+nq) downto 0);
     begin
         if (RESET = '1') then
-       --     A_O <= A_I;
             A_O <= TO_UNSIGNED(0, nm+1);
             Q_O <= Q_I;
         elsif (START = '1') then

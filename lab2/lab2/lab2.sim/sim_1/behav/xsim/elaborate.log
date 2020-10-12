@@ -14,6 +14,6 @@ Compiling package ieee.numeric_std
 Compiling architecture bhv of entity xil_defaultlib.CONTROL [\CONTROL(nq=4,nm=5)\]
 Compiling architecture bhv of entity xil_defaultlib.ADD [\ADD(nq=4,nm=5)\]
 Compiling architecture bhv of entity xil_defaultlib.SHIFT [\SHIFT(nq=4,nm=5)\]
-Compiling architecture bhv of entity xil_defaultlib.MUL [\MUL(nq=4,nm=5)\]
+Compiling architecture bhv of entity xil_defaultlib.MUL [\MUL(nm=5)\]
 Compiling architecture behavioral of entity xil_defaultlib.teshbench
 Built simulation snapshot teshbench_behav

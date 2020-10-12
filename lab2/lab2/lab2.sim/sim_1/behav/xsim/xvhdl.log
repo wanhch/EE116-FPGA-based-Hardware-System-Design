@@ -1,4 +1,8 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Courses/FPGA/lab2/ADD.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ADD'
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/Courses/FPGA/lab2/CONTROL.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'CONTROL'
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/Courses/FPGA/lab2/MUL.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'MUL'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Courses/FPGA/lab2/SHIFT.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SHIFT'
