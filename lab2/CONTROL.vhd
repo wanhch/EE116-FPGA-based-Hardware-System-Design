@@ -23,7 +23,7 @@ end entity CONTROL;
 architecture bhv of CONTROL is
 begin
     process(CLK, START)
-   type StateType is (init, add, shift, halt, judge);
+    type StateType is (init, add, shift, halt, judge);
     variable state: StateType := init;
     variable count: INTEGER RANGE 0 TO 1000;
     begin
