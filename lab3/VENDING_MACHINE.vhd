@@ -48,9 +48,43 @@ architecture bhv of VENDING_MACHINE is
              FLAG0 : out STD_LOGIC;
              FLAG1 : out STD_LOGIC);
     end component TIMER;
-
-    signal PASS: STD_LOGIC;
+    signal OneDollar_sig : STD_LOGIC;
+    signal FiftyCents_sig: STD_LOGIC;
+    signal TenCents_sig  : STD_LOGIC;
+    signal FiveCents_sig : STD_LOGIC;
+    signal TIMER0        : STD_LOGIC;
+    signal TIMER1        : STD_LOGIC;
+    signal FLAG0         : STD_LOGIC;
+    signal FLAG1         : STD_LOGIC;
 begin
-    G1: CONTROL generic map(nq => nq, nm => nm)
-                port map(Multiplier => Multiplier, START => Start, A_I => A_C, Q_I => Q_C, CLK => CLK, PASS => PASS, DONE => Done, PRODUCT => Product, A_O => A_A, Q_O => Q_S, RESET => RESET, SH => shift_flag, AD => add_flag);
+    U1: CONTROL port map (
+        CLK        => CLK,
+        OneDollar  => OneDollar_sig,
+        FiftyCents => FiftyCents_sig,
+        TenCents   => TenCents_sig,
+        FiveCents  => FiveCents_sig,
+        DONE       => FLAG1,
+        Enable     => Enable,
+        RST        => RST,
+        Money      => Money,
+        Deliver    => Deliver);
+    U2: ACCOUNTANT port map (
+        OneDollar_I  => OneDollar,
+        FiftyCents_I => FiftyCents,
+        TenCents_I   => TenCents,
+        FiveCents_I  => FiveCents,
+        FLAG         => FLAG0,
+        RST          => RST,
+        OneDollar_O  => OneDollar_sig,
+        FiftyCents_O => FiftyCents_sig,
+        TenCents_O   => TenCents_sig,
+        FiveCents_O  => FiveCents_sig,
+        TIMER0       => TIMER0);
+    U3: TIMER port map (
+        CLK    => CLK,
+        TIMER0 => TIMER0,
+        TIMER1 => TIMER1,
+        RST    => RST,
+        FLAG0  => FLAG0,
+        FLAG1  => FLAG1);
 end architecture bhv;
