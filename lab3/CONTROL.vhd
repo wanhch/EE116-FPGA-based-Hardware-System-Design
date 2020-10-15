@@ -18,90 +18,90 @@ end entity CONTROL;
 architecture bhv of CONTROL is
 begin
     process(CLK, RST, DONE, Enable)
-    type StateType is (Set, Sale, Deliver);
-    variable state        : StateType := Set;
+    type StateType is (SetState, SaleState, DeliverState);
+    variable state        : StateType := SetState;
     variable flag         : STD_LOGIC := '0';
     variable price_default: STD_LOGIC := '1';
     variable price        : UNSIGNED(5 downto 0);
     variable invested     : UNSIGNED(5 downto 0);
     variable change       : UNSIGNED(5 downto 0);
     begin
-        if (RESET = '1') then
-            price := 25;
+        if (RST = '1') then
+            price := TO_UNSIGNED(25, 6);
             flag := '0';
             price_default := '1';
-            Money <= TO_STD_LOGIC_VECTOR(price);
-            state := Set;
+            Money <= STD_LOGIC_VECTOR(price);
+            state := SetState;
         elsif (rising_edge(clk)) then
             case state is
-            when Set => 
+            when SetState => 
                 if (Enable = '1') then
-                    invested := 0;
+                    invested := TO_UNSIGNED(0, 6);
                     flag := '0';
-                    Money <= TO_STD_LOGIC_VECTOR(invested);
-                    state := Sale; 
+                    Money <= STD_LOGIC_VECTOR(invested);
+                    state := SaleState; 
                 elsif (flag = '0') then
                     if (OneDollar = '1') then
                         if (price_default = '1') then
-                            price := 0;
+                            price := TO_UNSIGNED(0, 6);
                             price_default := '0';
                         end if;
-                        flag = '1';
+                        flag := '1';
                         price := price + 20;
                     elsif (FiftyCents = '1') then
                         if (price_default = '1') then
-                            price := 0;
+                            price := TO_UNSIGNED(0, 6);
                             price_default := '0';
                         end if;
-                        flag = '1';
+                        flag := '1';
                         price := price + 10;
                     elsif (TenCents = '1') then
                         if (price_default = '1') then
-                            price := 0;
+                            price := TO_UNSIGNED(0, 6);
                             price_default := '0';
                         end if;
-                        flag = '1';
+                        flag := '1';
                         price := price + 2;
                     elsif (FiveCents = '1') then
                         if (price_default = '1') then
-                            price := 0;
+                            price := TO_UNSIGNED(0, 6);
                             price_default := '0';
                         end if;
-                        flag = '1';
+                        flag := '1';
                         price := price + 1;
                     end if;
                 elsif (OneDollar = '0' and FiftyCents = '0' and TenCents = '0' and FiveCents = '0') then
-                    flag = '0';
+                    flag := '0';
                 end if;
-                Money <= TO_STD_LOGIC_VECTOR(price);
-            when Sale =>
+                Money <= STD_LOGIC_VECTOR(price);
+            when SaleState =>
                 if (invested >= price) then
                     change := invested - price;
                     Deliver <= '1';
-                    Money <= TO_STD_LOGIC_VECTOR(change);
-                    state := Deliver;
+                    Money <= STD_LOGIC_VECTOR(change);
+                    state := DeliverState;
                 elsif (flag = '0') then
                     if (OneDollar = '1') then
-                        flag = '1';
+                        flag := '1';
                         invested := invested + 20;
                     elsif (FiftyCents = '1') then
-                        flag = '1';
+                        flag := '1';
                         invested := invested + 10;
                     elsif (TenCents = '1') then
-                        flag = '1';
+                        flag := '1';
                         invested := invested + 2;
                     elsif (FiveCents = '1') then
-                        flag = '1';
+                        flag := '1';
                         invested := invested + 1;
                     end if;
                 elsif (OneDollar = '0' and FiftyCents = '0' and TenCents = '0' and FiveCents = '0') then
-                    flag = '0';
+                    flag := '0';
                 end if;
-                Money <= TO_STD_LOGIC_VECTOR(invested);
-            when Deliver =>
+                Money <= STD_LOGIC_VECTOR(invested);
+            when DeliverState =>
                 if (DONE = '1') then
                     Deliver <= '0';
-                    state := Set;
+                    state := SetState;
                 end if;
             end case;
         end if;

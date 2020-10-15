@@ -34,24 +34,28 @@ begin
                 elsif (FLAG = '1') then
                     OneDollar_O <= '1';
                     TIMER0 <= '0';
+                end if;
             elsif (FiftyCents_I = '1') then 
                 if (FLAG = '0') then
                     TIMER0 <= '1';
                 elsif (FLAG = '1') then
                     FiftyCents_O <= '1';
                     TIMER0 <= '0';
+                end if;
             elsif (TenCents_I = '1') then 
                 if (FLAG = '0') then
                     TIMER0 <= '1';
                 elsif (FLAG = '1') then
                     TenCents_O <= '1';
                     TIMER0 <= '0';
+                end if;
             elsif (FiveCents_I = '1') then 
                 if (FLAG = '0') then
                     TIMER0 <= '1';
                 elsif (FLAG = '1') then
                     FiveCents_O <= '1';
                     TIMER0 <= '0';
+                end if;
             else
                 OneDollar_O  <= '0';
                 FiftyCents_O <= '0';

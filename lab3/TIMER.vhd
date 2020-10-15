@@ -18,8 +18,8 @@ begin
     begin
         if (RST = '1') then
             count := 0;
-            FLAG0 <= 0;
-            FLAG1 <= 0;
+            FLAG0 <= '0';
+            FLAG1 <= '0';
         elsif (rising_edge(CLK)) then
             if (TIMER0 = '1') then
                 count := count + 1;
@@ -27,12 +27,14 @@ begin
                     FLAG0 <= '1';
                 else 
                     FLAG0 <= '0';
+                end if;
             elsif (TIMER1 = '1') then
                 count := count + 1;
                 if (count >= 500000000) then -- wait for 5 sec
                     FLAG1 <= '1';
                 else 
                     FLAG1 <= '0';
+                end if;
             else
                 count := 0;
                 FLAG0 <= '0';
