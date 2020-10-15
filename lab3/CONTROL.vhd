@@ -12,7 +12,7 @@ entity CONTROL is
          Enable    : in  STD_LOGIC;
          RST       : in  STD_LOGIC;
          Money     : out STD_LOGIC_VECTOR(5 downto 0);
-         Deliver   : out STD_LOGIC;);
+         Deliver   : out STD_LOGIC);
 end entity CONTROL;
 
 architecture bhv of CONTROL is
