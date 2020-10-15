@@ -30,6 +30,7 @@ begin
             price := TO_UNSIGNED(25, 6);
             flag := '0';
             price_default := '1';
+            Deliver <= '0';
             Money <= STD_LOGIC_VECTOR(price);
             state := SetState;
         elsif (rising_edge(clk)) then
@@ -73,6 +74,7 @@ begin
                 elsif (OneDollar = '0' and FiftyCents = '0' and TenCents = '0' and FiveCents = '0') then
                     flag := '0';
                 end if;
+                Deliver <= '0';
                 Money <= STD_LOGIC_VECTOR(price);
             when SaleState =>
                 if (invested >= price) then
@@ -94,10 +96,10 @@ begin
                         flag := '1';
                         invested := invested + 1;
                     end if;
+                    Money <= STD_LOGIC_VECTOR(invested);
                 elsif (OneDollar = '0' and FiftyCents = '0' and TenCents = '0' and FiveCents = '0') then
                     flag := '0';
                 end if;
-                Money <= STD_LOGIC_VECTOR(invested);
             when DeliverState =>
                 if (DONE = '1') then
                     Deliver <= '0';

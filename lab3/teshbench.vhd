@@ -3,69 +3,87 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.all;
 
 entity teshbench is
-generic(nq: INTEGER := 4;
-        nm: INTEGER := 5);
 --  Port ( );
 end teshbench;
 
 architecture Behavioral of teshbench is
-component MUL is
-    generic(nq: INTEGER := 4;
-            nm: INTEGER := 5);
-    port(Multiplicand: in  STD_LOGIC_VECTOR(nm-1 downto 0);
-         Multiplier  : in  STD_LOGIC_VECTOR(nq-1 downto 0);
-         Start       : in  STD_LOGIC;
-         CLK         : in  STD_LOGIC;
-         Done        : out STD_LOGIC;
-         Product     : out STD_LOGIC_VECTOR(nm+nq-1 downto 0));
-end component MUL;
+component VENDING_MACHINE is
+    port(Enable    : in  STD_LOGIC;
+         RST       : in  STD_LOGIC;
+         CLK       : in  STD_LOGIC;
+         OneDollar : in  STD_LOGIC;
+         FiftyCents: in  STD_LOGIC;
+         TenCents  : in  STD_LOGIC;
+         FiveCents : in  STD_LOGIC;
+         Deliver   : out STD_LOGIC;
+         Money     : out STD_LOGIC_VECTOR(5 downto 0));
+end component VENDING_MACHINE;
 
-signal clk_sig         : STD_LOGIC;
-signal multiplicand_sig: STD_LOGIC_VECTOR(nm-1 downto 0);
-signal multiplier_sig  : STD_LOGIC_VECTOR(nq-1 downto 0);
-signal product_sig     : STD_LOGIC_VECTOR(nm+nq-1 downto 0);
-signal product_ref     : STD_LOGIC_VECTOR(nm+nq-1 downto 0);
-signal start_sig       : STD_LOGIC;
-signal done_sig        : STD_LOGIC;
-
+signal Enable    : STD_LOGIC;
+signal RST       : STD_LOGIC;
+signal CLK       : STD_LOGIC;
+signal OneDollar : STD_LOGIC;
+signal FiftyCents: STD_LOGIC;
+signal TenCents  : STD_LOGIC;
+signal FiveCents : STD_LOGIC;
 begin
-    uut: MUL port map (Multiplicand => multiplicand_sig,
-                       Multiplier   => multiplier_sig,
-                       Start        => start_sig,
-                       CLK          => clk_sig,
-                       Done         => done_sig,
-                       Product      => product_sig);
+    uut: VENDING_MACHINE port map (
+        Enable => Enable,
+        RST => RST,
+        CLK => CLK,
+        OneDollar => OneDollar,
+        FiftyCents => FiftyCents,
+        TenCents => TenCents,
+        FiveCents => FiveCents);
 
     process 
-    variable is_right: STD_LOGIC;
     begin
-        for i in (2**nm)-1 downto 0 loop
-            for j in (2**nq)-1 downto 0 loop
-                multiplicand_sig <= STD_LOGIC_VECTOR(TO_UNSIGNED(i, nm));
-                multiplier_sig   <= STD_LOGIC_VECTOR(TO_UNSIGNED(j, nq));
-                product_ref      <= STD_LOGIC_VECTOR(TO_UNSIGNED(i*j, nm+nq));
-                start_sig        <= '1';
-                wait until rising_edge(clk_sig);
-                start_sig <= '0';
-                wait until done_sig = '1';
-                wait for 1 ns;
-                if product_sig = product_ref then
-                    is_right := '1';
-                else
-                    is_right := '0';
-                end if;
-                wait until rising_edge(clk_sig);
-            end loop;
-        end loop;
+        Enable <= '0';
+        wait for 1 ms;
+        OneDollar <= '1';
+        wait for 10 ms;
+        OneDollar <= '0';
+        wait for 1 ms;
+        FiftyCents <= '1';
+        wait for 10 ms;
+        FiftyCents <= '0';
+        wait for 1 ms;
+        TenCents <= '1';
+        wait for 10 ms;
+        TenCents <= '0';
+        wait for 1 ms;
+        FiveCents <= '1';
+        wait for 10 ms;
+        FiveCents <= '0';
+        Enable <= '1';
+        wait for 1 ms;
+        Enable <= '0';
+        wait for 1 ms;
+        OneDollar <= '1';
+        wait for 10 ms;
+        OneDollar <= '0';
+        wait for 1 ms;
+        FiftyCents <= '1';
+        wait for 10 ms;
+        FiftyCents <= '0';
+        wait for 1 ms;
+        TenCents <= '1';
+        wait for 10 ms;
+        TenCents <= '0';
+        wait for 1 ms;
+        OneDollar <= '1';
+        wait for 10 ms;
+        OneDollar <= '0';
+        wait for 6000 ms;
     end process;
 
     process
     begin 
         loop
-            clk_sig <= '0';
-            wait for 1 ns;
-            clk_sig <= '1';
-            wait for 1 ns;
+            CLK <= '0';
+            wait for 5 ns;
+            CLK <= '1';
+            wait for 5 ns;
         end loop;
     end process;
 

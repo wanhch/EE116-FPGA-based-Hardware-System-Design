@@ -23,7 +23,7 @@ begin
         elsif (rising_edge(CLK)) then
             if (TIMER0 = '1') then
                 count := count + 1;
-                if (count >= 100000000) then -- wait for 1 sec
+                if (count >= 500000) then -- wait for 5 ms
                     FLAG0 <= '1';
                 else 
                     FLAG0 <= '0';
