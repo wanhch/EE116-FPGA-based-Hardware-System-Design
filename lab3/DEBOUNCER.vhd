@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
-entity ACCOUNTANT is
+entity DEBOUNCER is
     port(OneDollar_I : in  STD_LOGIC;
          FiftyCents_I: in  STD_LOGIC;
          TenCents_I  : in  STD_LOGIC;
@@ -14,9 +14,9 @@ entity ACCOUNTANT is
          TenCents_O  : out STD_LOGIC;
          FiveCents_O : out STD_LOGIC;
          TIMER0      : out STD_LOGIC);
-end entity ACCOUNTANT;
+end entity DEBOUNCER;
 
-architecture bhv of ACCOUNTANT is
+architecture bhv of DEBOUNCER is
 begin
     process(OneDollar_I, FiftyCents_I, TenCents_I, FiveCents_I, FLAG, RST)
     variable count : INTEGER;
