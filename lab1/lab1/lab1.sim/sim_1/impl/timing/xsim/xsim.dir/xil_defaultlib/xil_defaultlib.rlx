@@ -2,5 +2,5 @@
 2020.1
 May 27 2020
 20:09:33
-D:/Courses/FPGA/lab1/lab1/lab1.sim/sim_1/impl/timing/xsim/teshbench_time_impl.v,1601450963,verilog,,,,ADDR_CNTR;CLK_DIV;LED_DRIVER;glbl,,,,,,,,
-D:/Courses/FPGA/lab1/teshbench.vhd,1601450925,vhdl,,,,teshbench,,,,,,,,
+D:/Courses/FPGA/lab1/lab1/lab1.sim/sim_1/impl/timing/xsim/teshbench_time_impl.v,1603120262,verilog,,,,ADDR_CNTR;CLK_DIV;LED_DRIVER;glbl,,,,,,,,
+D:/Courses/FPGA/lab1/teshbench.vhd,1602784441,vhdl,,,,teshbench,,,,,,,,

@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-// Date        : Wed Sep 30 15:29:23 2020
+// Date        : Mon Oct 19 23:11:02 2020
 // Host        : DESKTOP-SJTAGQE running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode timesim -nolib -sdf_anno true -force -file
 //               D:/Courses/FPGA/lab1/lab1/lab1.sim/sim_1/impl/timing/xsim/teshbench_time_impl.v
@@ -206,120 +206,190 @@ module CLK_DIV
   wire CLK;
   wire CLK_50_IBUF_BUFG;
   wire [31:0]count;
-  wire \count[0]_i_2_n_0 ;
-  wire \count[0]_i_3_n_0 ;
-  wire \count[0]_i_4_n_0 ;
-  wire \count[0]_i_5_n_0 ;
-  wire \count[0]_i_6_n_0 ;
-  wire \count[0]_i_7_n_0 ;
-  wire \count[0]_i_8_n_0 ;
-  wire \count[0]_i_9_n_0 ;
+  wire count0_carry__0_n_0;
+  wire count0_carry__1_n_0;
+  wire count0_carry__2_n_0;
+  wire count0_carry__3_n_0;
+  wire count0_carry__4_n_0;
+  wire count0_carry__5_n_0;
+  wire count0_carry_n_0;
+  wire \count[31]_i_2_n_0 ;
+  wire \count[31]_i_3_n_0 ;
+  wire \count[31]_i_4_n_0 ;
+  wire \count[31]_i_5_n_0 ;
+  wire \count[31]_i_6_n_0 ;
+  wire \count[31]_i_7_n_0 ;
+  wire \count[31]_i_8_n_0 ;
+  wire \count[31]_i_9_n_0 ;
   wire [0:0]count_0;
-  wire \count_reg[12]_i_1_n_0 ;
-  wire \count_reg[16]_i_1_n_0 ;
-  wire \count_reg[20]_i_1_n_0 ;
-  wire \count_reg[24]_i_1_n_0 ;
-  wire \count_reg[28]_i_1_n_0 ;
-  wire \count_reg[4]_i_1_n_0 ;
-  wire \count_reg[8]_i_1_n_0 ;
   wire [31:1]data0;
   wire flag;
   wire flag_i_1_n_0;
-  wire [2:0]\NLW_count_reg[12]_i_1_CO_UNCONNECTED ;
-  wire [2:0]\NLW_count_reg[16]_i_1_CO_UNCONNECTED ;
-  wire [2:0]\NLW_count_reg[20]_i_1_CO_UNCONNECTED ;
-  wire [2:0]\NLW_count_reg[24]_i_1_CO_UNCONNECTED ;
-  wire [2:0]\NLW_count_reg[28]_i_1_CO_UNCONNECTED ;
-  wire [3:0]\NLW_count_reg[31]_i_2_CO_UNCONNECTED ;
-  wire [3:3]\NLW_count_reg[31]_i_2_O_UNCONNECTED ;
-  wire [2:0]\NLW_count_reg[4]_i_1_CO_UNCONNECTED ;
-  wire [2:0]\NLW_count_reg[8]_i_1_CO_UNCONNECTED ;
+  wire [2:0]NLW_count0_carry_CO_UNCONNECTED;
+  wire [2:0]NLW_count0_carry__0_CO_UNCONNECTED;
+  wire [2:0]NLW_count0_carry__1_CO_UNCONNECTED;
+  wire [2:0]NLW_count0_carry__2_CO_UNCONNECTED;
+  wire [2:0]NLW_count0_carry__3_CO_UNCONNECTED;
+  wire [2:0]NLW_count0_carry__4_CO_UNCONNECTED;
+  wire [2:0]NLW_count0_carry__5_CO_UNCONNECTED;
+  wire [3:0]NLW_count0_carry__6_CO_UNCONNECTED;
+  wire [3:3]NLW_count0_carry__6_O_UNCONNECTED;
 
+  (* ADDER_THRESHOLD = "35" *) 
+  (* OPT_MODIFIED = "SWEEP" *) 
+  CARRY4 count0_carry
+       (.CI(1'b0),
+        .CO({count0_carry_n_0,NLW_count0_carry_CO_UNCONNECTED[2:0]}),
+        .CYINIT(count[0]),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data0[4:1]),
+        .S(count[4:1]));
+  (* ADDER_THRESHOLD = "35" *) 
+  (* OPT_MODIFIED = "SWEEP" *) 
+  CARRY4 count0_carry__0
+       (.CI(count0_carry_n_0),
+        .CO({count0_carry__0_n_0,NLW_count0_carry__0_CO_UNCONNECTED[2:0]}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data0[8:5]),
+        .S(count[8:5]));
+  (* ADDER_THRESHOLD = "35" *) 
+  (* OPT_MODIFIED = "SWEEP" *) 
+  CARRY4 count0_carry__1
+       (.CI(count0_carry__0_n_0),
+        .CO({count0_carry__1_n_0,NLW_count0_carry__1_CO_UNCONNECTED[2:0]}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data0[12:9]),
+        .S(count[12:9]));
+  (* ADDER_THRESHOLD = "35" *) 
+  (* OPT_MODIFIED = "SWEEP" *) 
+  CARRY4 count0_carry__2
+       (.CI(count0_carry__1_n_0),
+        .CO({count0_carry__2_n_0,NLW_count0_carry__2_CO_UNCONNECTED[2:0]}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data0[16:13]),
+        .S(count[16:13]));
+  (* ADDER_THRESHOLD = "35" *) 
+  (* OPT_MODIFIED = "SWEEP" *) 
+  CARRY4 count0_carry__3
+       (.CI(count0_carry__2_n_0),
+        .CO({count0_carry__3_n_0,NLW_count0_carry__3_CO_UNCONNECTED[2:0]}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data0[20:17]),
+        .S(count[20:17]));
+  (* ADDER_THRESHOLD = "35" *) 
+  (* OPT_MODIFIED = "SWEEP" *) 
+  CARRY4 count0_carry__4
+       (.CI(count0_carry__3_n_0),
+        .CO({count0_carry__4_n_0,NLW_count0_carry__4_CO_UNCONNECTED[2:0]}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data0[24:21]),
+        .S(count[24:21]));
+  (* ADDER_THRESHOLD = "35" *) 
+  (* OPT_MODIFIED = "SWEEP" *) 
+  CARRY4 count0_carry__5
+       (.CI(count0_carry__4_n_0),
+        .CO({count0_carry__5_n_0,NLW_count0_carry__5_CO_UNCONNECTED[2:0]}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(data0[28:25]),
+        .S(count[28:25]));
+  (* ADDER_THRESHOLD = "35" *) 
+  (* OPT_MODIFIED = "SWEEP" *) 
+  CARRY4 count0_carry__6
+       (.CI(count0_carry__5_n_0),
+        .CO(NLW_count0_carry__6_CO_UNCONNECTED[3:0]),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O({NLW_count0_carry__6_O_UNCONNECTED[3],data0[31:29]}),
+        .S({1'b0,count[31:29]}));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h01FF)) 
+  LUT1 #(
+    .INIT(2'h1)) 
     \count[0]_i_1__0 
-       (.I0(\count[0]_i_2_n_0 ),
-        .I1(\count[0]_i_3_n_0 ),
-        .I2(\count[0]_i_4_n_0 ),
-        .I3(count[0]),
+       (.I0(count[0]),
         .O(count_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    \count[0]_i_2 
-       (.I0(\count[0]_i_5_n_0 ),
-        .I1(\count[0]_i_6_n_0 ),
-        .I2(count[31]),
-        .I3(count[30]),
-        .I4(count[1]),
-        .I5(\count[0]_i_7_n_0 ),
-        .O(\count[0]_i_2_n_0 ));
+  LUT4 #(
+    .INIT(16'h0001)) 
+    \count[31]_i_1 
+       (.I0(\count[31]_i_2_n_0 ),
+        .I1(\count[31]_i_3_n_0 ),
+        .I2(\count[31]_i_4_n_0 ),
+        .I3(\count[31]_i_5_n_0 ),
+        .O(flag));
   LUT5 #(
-    .INIT(32'hFFFFFBFF)) 
-    \count[0]_i_3 
-       (.I0(count[5]),
-        .I1(count[4]),
-        .I2(count[2]),
-        .I3(count[3]),
-        .I4(\count[0]_i_8_n_0 ),
-        .O(\count[0]_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFFFFFE)) 
-    \count[0]_i_4 
-       (.I0(count[12]),
-        .I1(count[13]),
-        .I2(count[10]),
-        .I3(count[11]),
-        .I4(\count[0]_i_9_n_0 ),
-        .O(\count[0]_i_4_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \count[0]_i_5 
-       (.I0(count[23]),
-        .I1(count[22]),
-        .I2(count[25]),
-        .I3(count[24]),
-        .O(\count[0]_i_5_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \count[0]_i_6 
-       (.I0(count[19]),
-        .I1(count[18]),
-        .I2(count[21]),
-        .I3(count[20]),
-        .O(\count[0]_i_6_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \count[0]_i_7 
-       (.I0(count[27]),
-        .I1(count[26]),
-        .I2(count[29]),
-        .I3(count[28]),
-        .O(\count[0]_i_7_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \count[0]_i_8 
-       (.I0(count[7]),
-        .I1(count[6]),
-        .I2(count[9]),
-        .I3(count[8]),
-        .O(\count[0]_i_8_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \count[0]_i_9 
-       (.I0(count[15]),
-        .I1(count[14]),
+    .INIT(32'hFFFFF7FF)) 
+    \count[31]_i_2 
+       (.I0(count[18]),
+        .I1(count[19]),
         .I2(count[17]),
         .I3(count[16]),
-        .O(\count[0]_i_9_n_0 ));
+        .I4(\count[31]_i_6_n_0 ),
+        .O(\count[31]_i_2_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFFFFEFF)) 
+    \count[31]_i_3 
+       (.I0(count[26]),
+        .I1(count[27]),
+        .I2(count[25]),
+        .I3(count[24]),
+        .I4(\count[31]_i_7_n_0 ),
+        .O(\count[31]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    \count[31]_i_4 
+       (.I0(count[2]),
+        .I1(count[3]),
+        .I2(count[0]),
+        .I3(count[1]),
+        .I4(\count[31]_i_8_n_0 ),
+        .O(\count[31]_i_4_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFFFFFFB)) 
+    \count[31]_i_5 
+       (.I0(count[10]),
+        .I1(count[11]),
+        .I2(count[8]),
+        .I3(count[9]),
+        .I4(\count[31]_i_9_n_0 ),
+        .O(\count[31]_i_5_n_0 ));
   LUT4 #(
-    .INIT(16'h0002)) 
-    \count[31]_i_1 
-       (.I0(count[0]),
-        .I1(\count[0]_i_4_n_0 ),
-        .I2(\count[0]_i_3_n_0 ),
-        .I3(\count[0]_i_2_n_0 ),
-        .O(flag));
+    .INIT(16'hFF7F)) 
+    \count[31]_i_6 
+       (.I0(count[21]),
+        .I1(count[20]),
+        .I2(count[22]),
+        .I3(count[23]),
+        .O(\count[31]_i_6_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \count[31]_i_7 
+       (.I0(count[29]),
+        .I1(count[28]),
+        .I2(count[31]),
+        .I3(count[30]),
+        .O(\count[31]_i_7_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFEF)) 
+    \count[31]_i_8 
+       (.I0(count[5]),
+        .I1(count[4]),
+        .I2(count[6]),
+        .I3(count[7]),
+        .O(\count[31]_i_8_n_0 ));
+  LUT4 #(
+    .INIT(16'hFF7F)) 
+    \count[31]_i_9 
+       (.I0(count[13]),
+        .I1(count[12]),
+        .I2(count[14]),
+        .I3(count[15]),
+        .O(\count[31]_i_9_n_0 ));
   FDRE #(
     .INIT(1'b1)) 
     \count_reg[0] 
@@ -352,15 +422,6 @@ module CLK_DIV
         .D(data0[12]),
         .Q(count[12]),
         .R(flag));
-  (* ADDER_THRESHOLD = "35" *) 
-  (* OPT_MODIFIED = "SWEEP" *) 
-  CARRY4 \count_reg[12]_i_1 
-       (.CI(\count_reg[8]_i_1_n_0 ),
-        .CO({\count_reg[12]_i_1_n_0 ,\NLW_count_reg[12]_i_1_CO_UNCONNECTED [2:0]}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data0[12:9]),
-        .S(count[12:9]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[13] 
@@ -393,15 +454,6 @@ module CLK_DIV
         .D(data0[16]),
         .Q(count[16]),
         .R(flag));
-  (* ADDER_THRESHOLD = "35" *) 
-  (* OPT_MODIFIED = "SWEEP" *) 
-  CARRY4 \count_reg[16]_i_1 
-       (.CI(\count_reg[12]_i_1_n_0 ),
-        .CO({\count_reg[16]_i_1_n_0 ,\NLW_count_reg[16]_i_1_CO_UNCONNECTED [2:0]}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data0[16:13]),
-        .S(count[16:13]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[17] 
@@ -442,15 +494,6 @@ module CLK_DIV
         .D(data0[20]),
         .Q(count[20]),
         .R(flag));
-  (* ADDER_THRESHOLD = "35" *) 
-  (* OPT_MODIFIED = "SWEEP" *) 
-  CARRY4 \count_reg[20]_i_1 
-       (.CI(\count_reg[16]_i_1_n_0 ),
-        .CO({\count_reg[20]_i_1_n_0 ,\NLW_count_reg[20]_i_1_CO_UNCONNECTED [2:0]}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data0[20:17]),
-        .S(count[20:17]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[21] 
@@ -483,15 +526,6 @@ module CLK_DIV
         .D(data0[24]),
         .Q(count[24]),
         .R(flag));
-  (* ADDER_THRESHOLD = "35" *) 
-  (* OPT_MODIFIED = "SWEEP" *) 
-  CARRY4 \count_reg[24]_i_1 
-       (.CI(\count_reg[20]_i_1_n_0 ),
-        .CO({\count_reg[24]_i_1_n_0 ,\NLW_count_reg[24]_i_1_CO_UNCONNECTED [2:0]}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data0[24:21]),
-        .S(count[24:21]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[25] 
@@ -524,15 +558,6 @@ module CLK_DIV
         .D(data0[28]),
         .Q(count[28]),
         .R(flag));
-  (* ADDER_THRESHOLD = "35" *) 
-  (* OPT_MODIFIED = "SWEEP" *) 
-  CARRY4 \count_reg[28]_i_1 
-       (.CI(\count_reg[24]_i_1_n_0 ),
-        .CO({\count_reg[28]_i_1_n_0 ,\NLW_count_reg[28]_i_1_CO_UNCONNECTED [2:0]}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data0[28:25]),
-        .S(count[28:25]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[29] 
@@ -565,15 +590,6 @@ module CLK_DIV
         .D(data0[31]),
         .Q(count[31]),
         .R(flag));
-  (* ADDER_THRESHOLD = "35" *) 
-  (* OPT_MODIFIED = "SWEEP" *) 
-  CARRY4 \count_reg[31]_i_2 
-       (.CI(\count_reg[28]_i_1_n_0 ),
-        .CO(\NLW_count_reg[31]_i_2_CO_UNCONNECTED [3:0]),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\NLW_count_reg[31]_i_2_O_UNCONNECTED [3],data0[31:29]}),
-        .S({1'b0,count[31:29]}));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[3] 
@@ -590,15 +606,6 @@ module CLK_DIV
         .D(data0[4]),
         .Q(count[4]),
         .R(flag));
-  (* ADDER_THRESHOLD = "35" *) 
-  (* OPT_MODIFIED = "SWEEP" *) 
-  CARRY4 \count_reg[4]_i_1 
-       (.CI(1'b0),
-        .CO({\count_reg[4]_i_1_n_0 ,\NLW_count_reg[4]_i_1_CO_UNCONNECTED [2:0]}),
-        .CYINIT(count[0]),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data0[4:1]),
-        .S(count[4:1]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[5] 
@@ -631,15 +638,6 @@ module CLK_DIV
         .D(data0[8]),
         .Q(count[8]),
         .R(flag));
-  (* ADDER_THRESHOLD = "35" *) 
-  (* OPT_MODIFIED = "SWEEP" *) 
-  CARRY4 \count_reg[8]_i_1 
-       (.CI(\count_reg[4]_i_1_n_0 ),
-        .CO({\count_reg[8]_i_1_n_0 ,\NLW_count_reg[8]_i_1_CO_UNCONNECTED [2:0]}),
-        .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(data0[8:5]),
-        .S(count[8:5]));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[9] 
@@ -648,14 +646,13 @@ module CLK_DIV
         .D(data0[9]),
         .Q(count[9]),
         .R(flag));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'hFFFD0002)) 
+    .INIT(32'hFFFE0001)) 
     flag_i_1
-       (.I0(count[0]),
-        .I1(\count[0]_i_4_n_0 ),
-        .I2(\count[0]_i_3_n_0 ),
-        .I3(\count[0]_i_2_n_0 ),
+       (.I0(\count[31]_i_2_n_0 ),
+        .I1(\count[31]_i_3_n_0 ),
+        .I2(\count[31]_i_4_n_0 ),
+        .I3(\count[31]_i_5_n_0 ),
         .I4(CLK),
         .O(flag_i_1_n_0));
   FDRE #(
@@ -668,7 +665,7 @@ module CLK_DIV
         .R(1'b0));
 endmodule
 
-(* ECO_CHECKSUM = "41877c7" *) (* addrwidth = "4" *) 
+(* ECO_CHECKSUM = "1295937f" *) 
 (* NotValidForBitStream *)
 module LED_DRIVER
    (CLK_50,

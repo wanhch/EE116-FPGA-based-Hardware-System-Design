@@ -3,22 +3,23 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="teshbench_behav.wdb" id="1">
+      <db_ref path="teshbench_time_synth.wdb" id="1">
          <top_modules>
+            <top_module name="glbl" />
             <top_module name="teshbench" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="812000000001fs"></ZoomEndTime>
-      <Cursor1Time time="68419320000fs"></Cursor1Time>
+      <ZoomStartTime time="2499963045fs"></ZoomStartTime>
+      <ZoomEndTime time="2500027146fs"></ZoomEndTime>
+      <Cursor1Time time="2499998728fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="102"></NameColumnWidth>
+      <NameColumnWidth column_width="108"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="12" />
    <wvobject fp_name="/teshbench/Enable" type="logic">
       <obj_property name="ElementShortName">Enable</obj_property>
       <obj_property name="ObjectShortName">Enable</obj_property>
@@ -54,5 +55,17 @@
    <wvobject fp_name="/teshbench/uut/Money" type="array">
       <obj_property name="ElementShortName">Money[5:0]</obj_property>
       <obj_property name="ObjectShortName">Money[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/U1/is_setting" type="logic">
+      <obj_property name="ElementShortName">is_setting</obj_property>
+      <obj_property name="ObjectShortName">is_setting</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/U1/default_flag" type="logic">
+      <obj_property name="ElementShortName">default_flag</obj_property>
+      <obj_property name="ObjectShortName">default_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/teshbench/uut/U1/cal_flag" type="logic">
+      <obj_property name="ElementShortName">cal_flag</obj_property>
+      <obj_property name="ObjectShortName">cal_flag</obj_property>
    </wvobject>
 </wave_config>

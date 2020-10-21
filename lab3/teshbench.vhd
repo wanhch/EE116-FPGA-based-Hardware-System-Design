@@ -38,43 +38,50 @@ begin
 
     process 
     begin
+        RST <= '1';
+        OneDollar <= '0';
+        FiftyCents <= '0';
+        TenCents <= '0';
+        FiveCents <= '0';
         Enable <= '0';
         wait for 1 ms;
+        RST <= '0';
+        wait for 1 ms;
         OneDollar <= '1';
-        wait for 10 ms;
+        wait for 1 ms;
         OneDollar <= '0';
         wait for 1 ms;
         FiftyCents <= '1';
-        wait for 10 ms;
+        wait for 1 ms;
         FiftyCents <= '0';
         wait for 1 ms;
         TenCents <= '1';
-        wait for 10 ms;
+        wait for 1 ms;
         TenCents <= '0';
         wait for 1 ms;
         FiveCents <= '1';
-        wait for 10 ms;
+        wait for 1 ms;
         FiveCents <= '0';
         Enable <= '1';
         wait for 1 ms;
         Enable <= '0';
         wait for 1 ms;
         OneDollar <= '1';
-        wait for 10 ms;
+        wait for 1 ms;
         OneDollar <= '0';
         wait for 1 ms;
         FiftyCents <= '1';
-        wait for 10 ms;
+        wait for 1 ms;
         FiftyCents <= '0';
         wait for 1 ms;
         TenCents <= '1';
-        wait for 10 ms;
+        wait for 1 ms;
         TenCents <= '0';
         wait for 1 ms;
         OneDollar <= '1';
-        wait for 10 ms;
+        wait for 1 ms;
         OneDollar <= '0';
-        wait for 6000 ms;
+        wait for 6 ms;
     end process;
 
     process
