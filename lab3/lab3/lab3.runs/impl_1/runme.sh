@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/Courses/FPGA/lab3_new/lab3/lab3.runs/impl_1'
+HD_PWD='D:/Courses/FPGA/lab3/lab3/lab3.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -41,7 +41,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
+/bin/touch .init_design.begin.rst
 EAStep vivado -log VENDING_MACHINE.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source VENDING_MACHINE.tcl -notrace
 
 

@@ -2,12 +2,12 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Thu Oct 22 02:15:11 2020
-# Process ID: 4444
-# Current directory: D:/Courses/FPGA/lab3_new/lab3/lab3.runs/synth_1
+# Start of session at: Sat Oct 24 19:28:03 2020
+# Process ID: 3744
+# Current directory: D:/Courses/FPGA/lab3/lab3/lab3.runs/synth_1
 # Command line: vivado.exe -log VENDING_MACHINE.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source VENDING_MACHINE.tcl
-# Log file: D:/Courses/FPGA/lab3_new/lab3/lab3.runs/synth_1/VENDING_MACHINE.vds
-# Journal file: D:/Courses/FPGA/lab3_new/lab3/lab3.runs/synth_1\vivado.jou
+# Log file: D:/Courses/FPGA/lab3/lab3/lab3.runs/synth_1/VENDING_MACHINE.vds
+# Journal file: D:/Courses/FPGA/lab3/lab3/lab3.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source VENDING_MACHINE.tcl -notrace
 Command: synth_design -top VENDING_MACHINE -part xc7z020clg484-1
@@ -17,97 +17,83 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 4420
+INFO: [Synth 8-7075] Helper process launched with PID 12536
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1072.918 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1074.691 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'VENDING_MACHINE' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:17]
-INFO: [Synth 8-3491] module 'FSM' declared at 'D:/Courses/FPGA/lab3_new/FSM.vhd:5' bound to instance 'U1' of component 'FSM' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:109]
-INFO: [Synth 8-638] synthesizing module 'FSM' [D:/Courses/FPGA/lab3_new/FSM.vhd:18]
-WARNING: [Synth 8-614] signal 'DONE' is read in the process but is not in the sensitivity list [D:/Courses/FPGA/lab3_new/FSM.vhd:34]
-INFO: [Synth 8-256] done synthesizing module 'FSM' (1#1) [D:/Courses/FPGA/lab3_new/FSM.vhd:18]
-INFO: [Synth 8-3491] module 'GENERATOR' declared at 'D:/Courses/FPGA/lab3_new/GENERATOR.vhd:5' bound to instance 'U2' of component 'GENERATOR' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:120]
-INFO: [Synth 8-638] synthesizing module 'GENERATOR' [D:/Courses/FPGA/lab3_new/GENERATOR.vhd:15]
-WARNING: [Synth 8-614] signal 'default_flag' is read in the process but is not in the sensitivity list [D:/Courses/FPGA/lab3_new/GENERATOR.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'GENERATOR' (2#1) [D:/Courses/FPGA/lab3_new/GENERATOR.vhd:15]
-INFO: [Synth 8-3491] module 'ADR' declared at 'D:/Courses/FPGA/lab3_new/ADR.vhd:5' bound to instance 'AP' of component 'ADR' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:128]
-INFO: [Synth 8-638] synthesizing module 'ADR' [D:/Courses/FPGA/lab3_new/ADR.vhd:11]
-INFO: [Synth 8-256] done synthesizing module 'ADR' (3#1) [D:/Courses/FPGA/lab3_new/ADR.vhd:11]
-INFO: [Synth 8-3491] module 'ADR' declared at 'D:/Courses/FPGA/lab3_new/ADR.vhd:5' bound to instance 'AI' of component 'ADR' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:132]
-INFO: [Synth 8-3491] module 'REG' declared at 'D:/Courses/FPGA/lab3_new/REG.vhd:5' bound to instance 'RP' of component 'REG' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:136]
-INFO: [Synth 8-638] synthesizing module 'REG' [D:/Courses/FPGA/lab3_new/REG.vhd:14]
-INFO: [Synth 8-256] done synthesizing module 'REG' (4#1) [D:/Courses/FPGA/lab3_new/REG.vhd:14]
-INFO: [Synth 8-3491] module 'REG' declared at 'D:/Courses/FPGA/lab3_new/REG.vhd:5' bound to instance 'RI' of component 'REG' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:143]
-INFO: [Synth 8-3491] module 'DEBOUNCER' declared at 'D:/Courses/FPGA/lab3_new/DEBOUNCER.vhd:5' bound to instance 'U3' of component 'DEBOUNCER' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:150]
-INFO: [Synth 8-638] synthesizing module 'DEBOUNCER' [D:/Courses/FPGA/lab3_new/DEBOUNCER.vhd:19]
-INFO: [Synth 8-256] done synthesizing module 'DEBOUNCER' (5#1) [D:/Courses/FPGA/lab3_new/DEBOUNCER.vhd:19]
-INFO: [Synth 8-3491] module 'TIMER' declared at 'D:/Courses/FPGA/lab3_new/TIMER.vhd:5' bound to instance 'U4' of component 'TIMER' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:162]
-INFO: [Synth 8-638] synthesizing module 'TIMER' [D:/Courses/FPGA/lab3_new/TIMER.vhd:14]
-INFO: [Synth 8-256] done synthesizing module 'TIMER' (6#1) [D:/Courses/FPGA/lab3_new/TIMER.vhd:14]
-INFO: [Synth 8-3491] module 'SUB' declared at 'D:/Courses/FPGA/lab3_new/SUB.vhd:5' bound to instance 'SU' of component 'SUB' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:169]
-INFO: [Synth 8-638] synthesizing module 'SUB' [D:/Courses/FPGA/lab3_new/SUB.vhd:11]
-INFO: [Synth 8-256] done synthesizing module 'SUB' (7#1) [D:/Courses/FPGA/lab3_new/SUB.vhd:11]
-INFO: [Synth 8-3491] module 'INTERACTOR' declared at 'D:/Courses/FPGA/lab3_new/INTERACTOR.vhd:5' bound to instance 'U5' of component 'INTERACTOR' [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:173]
-INFO: [Synth 8-638] synthesizing module 'INTERACTOR' [D:/Courses/FPGA/lab3_new/INTERACTOR.vhd:14]
-INFO: [Synth 8-256] done synthesizing module 'INTERACTOR' (8#1) [D:/Courses/FPGA/lab3_new/INTERACTOR.vhd:14]
-INFO: [Synth 8-256] done synthesizing module 'VENDING_MACHINE' (9#1) [D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd:17]
+INFO: [Synth 8-638] synthesizing module 'VENDING_MACHINE' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:17]
+INFO: [Synth 8-3491] module 'FSM' declared at 'D:/Courses/FPGA/lab3/FSM.vhd:5' bound to instance 'U1' of component 'FSM' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'FSM' [D:/Courses/FPGA/lab3/FSM.vhd:18]
+WARNING: [Synth 8-614] signal 'DONE' is read in the process but is not in the sensitivity list [D:/Courses/FPGA/lab3/FSM.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'FSM' (1#1) [D:/Courses/FPGA/lab3/FSM.vhd:18]
+INFO: [Synth 8-3491] module 'GENERATOR' declared at 'D:/Courses/FPGA/lab3/GENERATOR.vhd:5' bound to instance 'U2' of component 'GENERATOR' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:120]
+INFO: [Synth 8-638] synthesizing module 'GENERATOR' [D:/Courses/FPGA/lab3/GENERATOR.vhd:15]
+WARNING: [Synth 8-614] signal 'default_flag' is read in the process but is not in the sensitivity list [D:/Courses/FPGA/lab3/GENERATOR.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'GENERATOR' (2#1) [D:/Courses/FPGA/lab3/GENERATOR.vhd:15]
+INFO: [Synth 8-3491] module 'ADR' declared at 'D:/Courses/FPGA/lab3/ADR.vhd:5' bound to instance 'AP' of component 'ADR' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:128]
+INFO: [Synth 8-638] synthesizing module 'ADR' [D:/Courses/FPGA/lab3/ADR.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'ADR' (3#1) [D:/Courses/FPGA/lab3/ADR.vhd:11]
+INFO: [Synth 8-3491] module 'ADR' declared at 'D:/Courses/FPGA/lab3/ADR.vhd:5' bound to instance 'AI' of component 'ADR' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:132]
+INFO: [Synth 8-3491] module 'REG' declared at 'D:/Courses/FPGA/lab3/REG.vhd:5' bound to instance 'RP' of component 'REG' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:136]
+INFO: [Synth 8-638] synthesizing module 'REG' [D:/Courses/FPGA/lab3/REG.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'REG' (4#1) [D:/Courses/FPGA/lab3/REG.vhd:14]
+INFO: [Synth 8-3491] module 'REG' declared at 'D:/Courses/FPGA/lab3/REG.vhd:5' bound to instance 'RI' of component 'REG' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:143]
+INFO: [Synth 8-3491] module 'DEBOUNCER' declared at 'D:/Courses/FPGA/lab3/DEBOUNCER.vhd:5' bound to instance 'U3' of component 'DEBOUNCER' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:150]
+INFO: [Synth 8-638] synthesizing module 'DEBOUNCER' [D:/Courses/FPGA/lab3/DEBOUNCER.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'DEBOUNCER' (5#1) [D:/Courses/FPGA/lab3/DEBOUNCER.vhd:19]
+INFO: [Synth 8-3491] module 'TIMER' declared at 'D:/Courses/FPGA/lab3/TIMER.vhd:5' bound to instance 'U4' of component 'TIMER' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:162]
+INFO: [Synth 8-638] synthesizing module 'TIMER' [D:/Courses/FPGA/lab3/TIMER.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'TIMER' (6#1) [D:/Courses/FPGA/lab3/TIMER.vhd:14]
+INFO: [Synth 8-3491] module 'SUB' declared at 'D:/Courses/FPGA/lab3/SUB.vhd:5' bound to instance 'SU' of component 'SUB' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'SUB' [D:/Courses/FPGA/lab3/SUB.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'SUB' (7#1) [D:/Courses/FPGA/lab3/SUB.vhd:11]
+INFO: [Synth 8-3491] module 'INTERACTOR' declared at 'D:/Courses/FPGA/lab3/INTERACTOR.vhd:5' bound to instance 'U5' of component 'INTERACTOR' [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:173]
+INFO: [Synth 8-638] synthesizing module 'INTERACTOR' [D:/Courses/FPGA/lab3/INTERACTOR.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'INTERACTOR' (8#1) [D:/Courses/FPGA/lab3/INTERACTOR.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'VENDING_MACHINE' (9#1) [D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd:17]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1105.340 ; gain = 32.422
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1105.668 ; gain = 30.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1105.340 ; gain = 32.422
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1105.668 ; gain = 30.977
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1105.340 ; gain = 32.422
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1105.668 ; gain = 30.977
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1105.340 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1105.668 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'Money[5]' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:15]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'Money[4]' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:19]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'Money[3]' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:23]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'Money[2]' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:27]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'Money[1]' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:31]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'Money[0]' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:35]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'CLK' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:39]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'Deliver' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:41]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'Enable' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:45]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'FiftyCents' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:47]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'FiveCents' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:49]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'OneDollar' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:51]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'RST' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:53]
-CRITICAL WARNING: [Common 17-69] Command failed: Cannot change direction of connected port 'TenCents' [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc:55]
-Finished Parsing XDC File [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/VENDING_MACHINE_propImpl.xdc].
+Parsing XDC File [D:/Courses/FPGA/lab3/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc]
+Finished Parsing XDC File [D:/Courses/FPGA/lab3/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Courses/FPGA/lab3/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/VENDING_MACHINE_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/VENDING_MACHINE_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1213.898 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1220.062 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1213.898 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1220.062 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1213.898 ; gain = 140.980
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1220.062 ; gain = 145.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1213.898 ; gain = 140.980
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1220.062 ; gain = 145.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1213.898 ; gain = 140.980
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1220.062 ; gain = 145.371
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'State_reg' in module 'FSM'
 ---------------------------------------------------------------------------------------------------
@@ -121,7 +107,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'State_reg' in module 'FSM'
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'State_reg' using encoding 'one-hot' in module 'FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1213.898 ; gain = 140.980
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1220.062 ; gain = 145.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -132,17 +118,18 @@ Detailed RTL Component Info :
 	   2 Input    7 Bit       Adders := 2     
 	   3 Input    7 Bit       Adders := 1     
 +---Registers : 
+	               32 Bit    Registers := 1     
 	                7 Bit    Registers := 2     
-	                1 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 5     
 	   2 Input    7 Bit        Muxes := 5     
 	   3 Input    7 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 2     
 	   5 Input    5 Bit        Muxes := 1     
 	   2 Input    5 Bit        Muxes := 7     
 	   5 Input    1 Bit        Muxes := 4     
-	   2 Input    1 Bit        Muxes := 8     
+	   2 Input    1 Bit        Muxes := 9     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -159,25 +146,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1213.898 ; gain = 140.980
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1220.062 ; gain = 145.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1213.898 ; gain = 140.980
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1220.062 ; gain = 145.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1213.898 ; gain = 140.980
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1220.062 ; gain = 145.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1231.578 ; gain = 156.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -195,37 +182,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1231.578 ; gain = 156.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1231.578 ; gain = 156.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1231.578 ; gain = 156.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1231.578 ; gain = 156.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1231.578 ; gain = 156.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1231.578 ; gain = 156.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -243,37 +230,38 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     1|
 |2     |CARRY4 |    30|
-|3     |LUT2   |    70|
-|4     |LUT3   |     2|
-|5     |LUT4   |     2|
-|6     |LUT5   |     6|
-|7     |LUT6   |    54|
-|8     |FDCE   |    34|
-|9     |FDRE   |    18|
-|10    |FDSE   |     1|
-|11    |IBUF   |     7|
-|12    |OBUF   |     7|
+|3     |LUT1   |     7|
+|4     |LUT2   |    55|
+|5     |LUT3   |    11|
+|6     |LUT4   |     9|
+|7     |LUT5   |    61|
+|8     |LUT6   |    45|
+|9     |FDCE   |    35|
+|10    |FDRE   |    18|
+|11    |FDSE   |     1|
+|12    |IBUF   |     7|
+|13    |OBUF   |     7|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1231.578 ; gain = 156.887
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 1231.070 ; gain = 49.594
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 1231.070 ; gain = 158.152
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 1231.578 ; gain = 42.492
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1231.578 ; gain = 156.887
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1238.777 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1241.406 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 30 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1248.832 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1247.469 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-45 Infos, 2 Warnings, 14 Critical Warnings and 0 Errors encountered.
+45 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1248.832 ; gain = 175.914
-INFO: [Common 17-1381] The checkpoint 'D:/Courses/FPGA/lab3_new/lab3/lab3.runs/synth_1/VENDING_MACHINE.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1247.469 ; gain = 172.777
+INFO: [Common 17-1381] The checkpoint 'D:/Courses/FPGA/lab3/lab3/lab3.runs/synth_1/VENDING_MACHINE.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file VENDING_MACHINE_utilization_synth.rpt -pb VENDING_MACHINE_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Oct 22 02:15:54 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 24 19:28:52 2020...

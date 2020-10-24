@@ -19,7 +19,7 @@ begin
       Deliver <= '0';
       if (is_setting = '1') then
          Money <= price(5 downto 0);
-      elsif (SIGNED(change) > 0) then
+      elsif (SIGNED(change) >= 0) then
          Deliver <= '1';
          Money <= change(5 downto 0);
       else

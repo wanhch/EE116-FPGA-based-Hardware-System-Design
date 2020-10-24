@@ -15,23 +15,30 @@ architecture bhv of TIMER is
 begin
    process(CLK, RST)
    variable count : INTEGER;
+   variable done  : STD_LOGIC := '0';
    begin
       if (RST = '1') then
          count := 0;
+         done  := '0';
          FLAG0 <= '0';
          FLAG1 <= '0';
       elsif (rising_edge(CLK)) then
          if (TIMER0 = '1') then
-            count := count + 1;
-            if (count >= 500000) then -- wait for 5 ms
+            if (count <= 1000000) then
+               count := count + 1;
+            end if;
+            if (count >= 500000 and done = '0') then -- wait for 5 ms
                FLAG0 <= '1';
                FLAG1 <= '0';
+               done  := '1';
             else 
                FLAG0 <= '0';
                FLAG1 <= '0';
             end if;
          elsif (TIMER1 = '1') then
-            count := count + 1;
+            if (count <= 1000000000) then
+               count := count + 1;
+            end if;
             if (count >= 500000000) then -- wait for 5000ms
                FLAG0 <= '0';
                FLAG1 <= '1';
@@ -41,6 +48,7 @@ begin
             end if;
          else
             count := 0;
+            done  := '0';
             FLAG0 <= '0';
             FLAG1 <= '0';
          end if;

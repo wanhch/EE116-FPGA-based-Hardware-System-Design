@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "D:/Courses/FPGA/lab3_new/lab3/lab3.runs/synth_1/VENDING_MACHINE.tcl"
+  variable script "D:/Courses/FPGA/lab3/lab3/lab3.runs/synth_1/VENDING_MACHINE.tcl"
   variable category "vivado_synth"
 }
 
@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
+set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -79,25 +80,25 @@ create_project -in_memory -part xc7z020clg484-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir D:/Courses/FPGA/lab3_new/lab3/lab3.cache/wt [current_project]
-set_property parent.project_path D:/Courses/FPGA/lab3_new/lab3/lab3.xpr [current_project]
+set_property webtalk.parent_dir D:/Courses/FPGA/lab3/lab3/lab3.cache/wt [current_project]
+set_property parent.project_path D:/Courses/FPGA/lab3/lab3/lab3.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.4 [current_project]
-set_property ip_output_repo d:/Courses/FPGA/lab3_new/lab3/lab3.cache/ip [current_project]
+set_property ip_output_repo d:/Courses/FPGA/lab3/lab3/lab3.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  D:/Courses/FPGA/lab3_new/ADR.vhd
-  D:/Courses/FPGA/lab3_new/DEBOUNCER.vhd
-  D:/Courses/FPGA/lab3_new/FSM.vhd
-  D:/Courses/FPGA/lab3_new/GENERATOR.vhd
-  D:/Courses/FPGA/lab3_new/INTERACTOR.vhd
-  D:/Courses/FPGA/lab3_new/REG.vhd
-  D:/Courses/FPGA/lab3_new/SUB.vhd
-  D:/Courses/FPGA/lab3_new/TIMER.vhd
-  D:/Courses/FPGA/lab3_new/VENDING_MACHINE.vhd
+  D:/Courses/FPGA/lab3/ADR.vhd
+  D:/Courses/FPGA/lab3/DEBOUNCER.vhd
+  D:/Courses/FPGA/lab3/FSM.vhd
+  D:/Courses/FPGA/lab3/GENERATOR.vhd
+  D:/Courses/FPGA/lab3/INTERACTOR.vhd
+  D:/Courses/FPGA/lab3/REG.vhd
+  D:/Courses/FPGA/lab3/SUB.vhd
+  D:/Courses/FPGA/lab3/TIMER.vhd
+  D:/Courses/FPGA/lab3/VENDING_MACHINE.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -108,8 +109,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc
-set_property used_in_implementation false [get_files D:/Courses/FPGA/lab3_new/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc]
+read_xdc D:/Courses/FPGA/lab3/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc
+set_property used_in_implementation false [get_files D:/Courses/FPGA/lab3/lab3/lab3.srcs/constrs_1/new/VENDING_MACHINE.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
