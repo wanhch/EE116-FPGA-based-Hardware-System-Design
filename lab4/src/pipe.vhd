@@ -18,7 +18,6 @@ architecture Behavioral of pipe is
 signal reg: STD_LOGIC_VECTOR(DATA_WIDTH * LENGTH -1 downto 0) := (others => '0');
 begin
     Q <= reg(DATA_WIDTH-1 downto 0);
-
     process(clk)
     begin
         if (rising_edge(clk)) then
