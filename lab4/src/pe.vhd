@@ -31,15 +31,18 @@ begin
 
     process(clk)
     variable count: INTEGER;
+    variable count_flag: STD_LOGIC := '0';
     begin
         if (rising_edge(clk)) then
             if (rst = '1') then
+                count_flag := '0';
                 count := 0;
                 reg <= (others => '0');
                 valid_sum <= '0';
                 out_a <= (others => '0');
                 out_b <= (others => '0');
             elsif (init = '1') then
+                count_flag := '1';
                 count := 1;
                 valid_sum <= '0';
                 reg(OUTPUT_WIDTH-1 downto 2*INPUT_WIDTH) <= (others => '0');
@@ -47,11 +50,15 @@ begin
                 out_a <= in_a;
                 out_b <= in_b;
             else
-                if (count < MAT_LENGTH-1) then
-                    count := count + 1;
-                    valid_sum <= '0';
+                if (count_flag = '1') then
+                    if (count < MAT_LENGTH-1) then
+                        count := count + 1;
+                        valid_sum <= '0';
+                    else
+                        valid_sum <= '1';
+                    end if;
                 else
-                    valid_sum <= '1';
+                    count := 0;
                 end if;
                 reg <= STD_LOGIC_VECTOR(UNSIGNED(in_a) * UNSIGNED(in_b) + UNSIGNED(reg));
                 out_a <= in_a;

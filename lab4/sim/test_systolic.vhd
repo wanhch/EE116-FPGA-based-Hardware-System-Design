@@ -12,10 +12,10 @@ use work.util_package.ALL;
 
 entity test_systolic is
 	Generic(
-        MAT_A_ROWS : POSITIVE := 4;
-        MAT_LENGTH : POSITIVE := 4;
-        MAT_B_COLS : POSITIVE := 4;
-        ARRAY_SIZE : POSITIVE := 4;
+        MAT_A_ROWS : POSITIVE := 21;
+        MAT_LENGTH : POSITIVE := 13;
+        MAT_B_COLS : POSITIVE := 27;
+        ARRAY_SIZE : POSITIVE := 3;
         INPUT_WIDTH : POSITIVE := 8;
         RAND_SEED_A : POSITIVE := 1;
         RAND_SEED_B : POSITIVE := 2;
@@ -56,6 +56,8 @@ architecture Behavioral of test_systolic is
 
     signal matrix_A: InputMatrixAType := (others => (others => (others => '0')));
     signal matrix_B: InputMatrixBType := (others => (others => (others => '0')));
+    signal matrix_A_reference: InputMatrixAType := (others => (others => (others => '0')));
+    signal matrix_B_reference: InputMatrixBType := (others => (others => (others => '0')));
 
     type OutputLineType is array(natural range <>) of STD_LOGIC_VECTOR(OUTPUT_WIDTH-1 downto 0);
     type OutputMatrixType is array(0 to MAT_A_ROWS-1) of OutputLineType(0 to MAT_B_COLS-1);
@@ -65,9 +67,10 @@ architecture Behavioral of test_systolic is
     signal D_list: OutputMatrixListType := (others => (others => (others => (others => '0'))));
     signal reference_D: OutputMatrixListType := (others => (others => (others => (others => '0'))));
 
-    type ValidLineType is array(0 to MAT_LENGTH-1) of STD_LOGIC_VECTOR(clog2(VALID_KIND+1) downto 0);
+    type ValidLineType is array(0 to MAT_LENGTH-1) of STD_LOGIC_VECTOR(clog2(MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2)) downto 0);
     type ValidMatrixType is array(0 to MAT_LENGTH-1) of ValidLineType;
-    signal valid_count: ValidMatrixType := (others => (others => (others => '0')));
+    type ValidMatrixListType is array(0 to VALID_KIND-1) of ValidMatrixType;
+    signal valid_count: ValidMatrixListType := ( others => (others => (others => (others => '0'))));
 
     signal D_sig: STD_LOGIC_VECTOR (OUTPUT_WIDTH * (ARRAY_SIZE**2)-1 downto 0) := (others => '0');
     signal valid_D_sig: STD_LOGIC_VECTOR (clog2(VALID_KIND+1) * (ARRAY_SIZE**2)-1 downto 0) := (others => '0');
@@ -81,7 +84,7 @@ architecture Behavioral of test_systolic is
     signal matrix_in_done_sig: STD_LOGIC := '0';
     signal matrix_out_done_sig: STD_LOGIC := '0';
 
-    signal gen_done: STD_LOGIC := '0';
+    signal gen_done: STD_LOGIC := '1';
     signal read_done: STD_LOGIC := '0';
 
 -- Add your own code here
@@ -165,7 +168,7 @@ begin
         variable buf: line;
         variable data: STD_LOGIC_VECTOR(INPUT_WIDTH-1 downto 0);
         begin
---            wait until (gen_done = '1');
+            --wait until (gen_done = '1');
             file_open(file_status, file_in, "testcase.txt", read_mode);
 
             for matrix_index in 0 to SAMPLE_NUM - 1 loop
@@ -207,27 +210,35 @@ begin
             end loop;
         end process send_input;
 
-    cal_result: process
+    cal_result: process(valid_D_sig)
         variable valid_sig: INTEGER := 0; --UNSIGNED(clog2(VALID_KIND+1) * (ARRAY_SIZE**2)-1 downto 0) := (others => '0');
         variable slice: INTEGER := MAT_B_COLS / ARRAY_SIZE;
         begin
-            for matrix_index in 0 to SAMPLE_NUM - 1 loop
-                wait until falling_edge(matrix_in_done_sig);
-                for row in 0 to MAT_A_ROWS-1 loop 
-                    for col in 0 to MAT_B_COLS-1 loop 
+            matrix_out_done_sig <= '0';
+            --for matrix_index in 0 to SAMPLE_NUM - 1 loop
+                for row in 0 to ARRAY_SIZE-1 loop 
+                    for col in 0 to ARRAY_SIZE-1 loop 
                         valid_sig := TO_INTEGER(UNSIGNED(valid_D_sig(clog2(VALID_KIND+1) * (row*ARRAY_SIZE+col + 1) -1 downto clog2(VALID_KIND+1) * (row*ARRAY_SIZE+col))));
                         if (valid_sig > 0) then
-                            D_list(valid_sig-1)(row + TO_INTEGER(UNSIGNED(valid_count(row)(col)) / slice) * ARRAY_SIZE)(col + TO_INTEGER(UNSIGNED(valid_count(row)(col)) mod slice) * ARRAY_SIZE) <= D_sig(OUTPUT_WIDTH * (row*ARRAY_SIZE+col + 1) -1 downto OUTPUT_WIDTH * (row*ARRAY_SIZE+col));
-                            if (UNSIGNED(valid_count(row)(col)) < VALID_KIND-1) then
-                                valid_count(row)(col) <= STD_LOGIC_VECTOR(UNSIGNED(valid_count(row)(col)) + 1);
+                            D_list(valid_sig-1)(row + TO_INTEGER(UNSIGNED(valid_count(valid_sig-1)(row)(col)) / slice) * ARRAY_SIZE)(col + TO_INTEGER(UNSIGNED(valid_count(valid_sig-1)(row)(col)) mod slice) * ARRAY_SIZE) <= D_sig(OUTPUT_WIDTH * (row*ARRAY_SIZE+col + 1) -1 downto OUTPUT_WIDTH * (row*ARRAY_SIZE+col));
+                            if (UNSIGNED(valid_count(valid_sig-1)(row)(col)) < MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2)) then
+                                valid_count(valid_sig-1)(row)(col) <= STD_LOGIC_VECTOR(UNSIGNED(valid_count(valid_sig-1)(row)(col)) + 1);
                             else
-                                valid_count(row)(col) <= (others => '0');
+                                valid_count <= (others => (others => (others => (others => '0'))));
                             end if;
                         end if;
                     end loop;
                 end loop;
-                matrix_D <= D_list(matrix_index mod VALID_KIND);
-            end loop;
+                for idx in 0 to VALID_KIND-1 loop 
+                    if (TO_INTEGER(UNSIGNED(valid_count(idx)(ARRAY_SIZE-1)(ARRAY_SIZE-1))) >= MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2)) then
+                        matrix_D <= D_list(idx);
+                        valid_count(idx) <= (others => (others => (others => '0')));
+                        matrix_out_done_sig <= '1';
+                    end if;
+                end loop;
+                --wait until rising_edge(matrix_out_done_sig);
+                --matrix_D <= D_list(matrix_index mod VALID_KIND);
+            --end loop;
         end process cal_result;
 
     save_result: process
@@ -235,6 +246,7 @@ begin
         variable file_status: file_open_status;
         variable buf: LINE;
         begin
+            --wait until (gen_done = '1');
             file_open(file_out, "output.txt", write_mode);
             for matrix_index in 0 to SAMPLE_NUM - 1 loop
                 wait until rising_edge(matrix_out_done_sig);
@@ -250,32 +262,43 @@ begin
             wait;
         end process save_result;
 
-    gen_refernece: process
-        variable tmp_res: integer range 0 to 2**OUTPUT_WIDTH-1;
 
-        FILE file_out: text;
+    gen_refernece: process
+        FILE file_in: text;
         variable file_status: file_open_status;
         variable buf: line;
+        variable data: STD_LOGIC_VECTOR(INPUT_WIDTH-1 downto 0);
+        variable tmp_res: integer range 0 to 2**OUTPUT_WIDTH-1;
         begin
-            file_open(file_status, file_out, "reference.txt", write_mode);
+            --wait until (gen_done = '1');
+            file_open(file_status, file_in, "testcase.txt", read_mode);
 
             for matrix_index in 0 to SAMPLE_NUM - 1 loop
-                wait until rising_edge(clk_sig);
+                readline(file_in, buf);
+                for length in 0 to MAT_LENGTH - 1 loop
+                    for row in 0 to MAT_A_ROWS - 1 loop
+                        read(buf, data);
+                        matrix_A_reference(row)(length) <= data;
+                    end loop;
+                    for col in 0 to MAT_B_COLS - 1 loop
+                        read(buf, data);
+                        matrix_B_reference(length)(col) <= data;
+                    end loop;
+                end loop;
+
+
                 for row in 0 to MAT_A_ROWS - 1 loop
                     for col in 0 to MAT_B_COLS - 1 loop
                         tmp_res := 0;
                         for k in 0 to MAT_LENGTH - 1 loop
-                            tmp_res := tmp_res + to_integer(unsigned(matrix_A(row)(k))) * to_integer(unsigned(matrix_B(k)(col)));
+                            tmp_res := tmp_res + to_integer(unsigned(matrix_A_reference(row)(k))) * to_integer(unsigned(matrix_B_reference(k)(col)));
                         end loop;
                         reference_D(matrix_index mod VALID_KIND)(row)(col) <= std_logic_vector(to_unsigned(tmp_res, OUTPUT_WIDTH));
-                        write(buf, std_logic_vector(to_unsigned(tmp_res, OUTPUT_WIDTH)));
                     end loop;
                 end loop;
-                writeline(file_out,buf);
+                wait until falling_edge(matrix_out_done_sig);
             end loop;
-
-            file_close(file_out);
-            std.env.finish;
+            wait;
         end process gen_refernece;
 
     check_result: process
@@ -284,6 +307,7 @@ begin
         variable buf: LINE;
         variable is_right: STD_LOGIC;
         begin
+            --wait until (gen_done = '1');
             file_open(file_out, "result.txt", write_mode);
             for matrix_index in 0 to SAMPLE_NUM - 1 loop
                 wait until rising_edge(matrix_out_done_sig);
