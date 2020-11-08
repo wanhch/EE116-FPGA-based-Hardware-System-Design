@@ -12,10 +12,10 @@ use work.util_package.ALL;
 
 entity test_systolic is
     Generic(
-        MAT_A_ROWS : POSITIVE := 4;
-        MAT_LENGTH : POSITIVE := 4;
-        MAT_B_COLS : POSITIVE := 4;
-        ARRAY_SIZE : POSITIVE := 4;
+        MAT_A_ROWS : POSITIVE := 49;
+        MAT_LENGTH : POSITIVE := 5;
+        MAT_B_COLS : POSITIVE := 56;
+        ARRAY_SIZE : POSITIVE := 7;
         INPUT_WIDTH : POSITIVE := 8;
         RAND_SEED_A : POSITIVE := 1;
         RAND_SEED_B : POSITIVE := 2;
@@ -31,7 +31,7 @@ architecture Behavioral of test_systolic is
             MAT_A_ROWS : POSITIVE := 4;
             MAT_LENGTH : POSITIVE := 4;
             MAT_B_COLS : POSITIVE := 4;
-            ARRAY_SIZE : POSITIVE := 4;
+            ARRAY_SIZE : POSITIVE := 2;
             INPUT_WIDTH : POSITIVE := 8;
             VALID_KIND : POSITIVE := get_valid_kind(ARRAY_SIZE, MAT_LENGTH);
             OUTPUT_WIDTH : POSITIVE := INPUT_WIDTH*2 + clog2(MAT_LENGTH));
@@ -62,8 +62,6 @@ architecture Behavioral of test_systolic is
     signal matrix_D: OutputMatrixType := (others => (others => (others => '0')));
     signal D_list: OutputMatrixListType := (others => (others => (others => (others => '0'))));
     signal reference_D: OutputMatrixListType := (others => (others => (others => (others => '0'))));
-
-
 
     signal D_sig: STD_LOGIC_VECTOR (OUTPUT_WIDTH * (ARRAY_SIZE**2)-1 downto 0) := (others => '0');
     signal valid_D_sig: STD_LOGIC_VECTOR (clog2(VALID_KIND+1) * (ARRAY_SIZE**2)-1 downto 0) := (others => '0');
@@ -204,7 +202,7 @@ begin
         end process send_input;
 
     cal_result: process(valid_D_sig)
-        type ValidLineType is array(0 to ARRAY_SIZE-1) of STD_LOGIC_VECTOR(clog2(MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2)) downto 0);
+        type ValidLineType is array(0 to ARRAY_SIZE-1) of STD_LOGIC_VECTOR(clog2(VALID_KIND+1) * MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2)-1 downto 0);
         type ValidMatrixType is array(0 to ARRAY_SIZE-1) of ValidLineType;
         type ValidMatrixListType is array(0 to VALID_KIND-1) of ValidMatrixType;
         variable valid_count: ValidMatrixListType := ( others => (others => (others => (others => '0'))));

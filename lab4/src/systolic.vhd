@@ -91,7 +91,7 @@ architecture Behavioral of systolic is
 
     signal enable_count_sig: STD_LOGIC;
     signal pixel_cntr: STD_LOGIC_VECTOR(clog2(MAT_LENGTH)-1 downto 0) := (others => 'U');
-    signal slice_cntr: STD_LOGIC_VECTOR(clog2((MAT_LENGTH / ARRAY_SIZE)**2)-1 downto 0) := (others => 'U');
+    signal slice_cntr: STD_LOGIC_VECTOR(clog2(MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2))-1 downto 0) := (others => 'U');
     signal slice_cntr_A: INTEGER := 0;
     signal slice_cntr_B: INTEGER := 0;
 
@@ -99,7 +99,7 @@ begin
     CNT: counter 
         generic map (
             WIDTH => MAT_LENGTH,
-            HEIGHT => ((MAT_LENGTH / ARRAY_SIZE)**2))
+            HEIGHT => MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2))
         port map (
             clk => clk,
             rst => rst,
@@ -221,7 +221,7 @@ begin
                 init_count := 0;
                 init_sig <= (others => (others => '0'));
                 enable_count_sig <= '0';
-                valid_sum_reg := (others => (others => (others => '0')));
+                valid_sum_reg := (others => (others => (STD_LOGIC_VECTOR(TO_UNSIGNED(1, clog2(VALID_KIND+1))))));
                 valid_sum_count := (others => (others => 0));
                 read_address_A <= (others => '0');
                 read_address_B <= (others => '0');
@@ -230,10 +230,10 @@ begin
                 valid_D <= (others => '0');
                 input_done <= '0';
             else
-                if (init_count <= 2 * ARRAY_SIZE - 2) then 
+                if (init_count <= 2 * ARRAY_SIZE - 1) then 
                     init_count := init_count + 1;
                 else 
-                    init_count := 2 * ARRAY_SIZE - 2;
+                    init_count := 2 * ARRAY_SIZE - 1;
                 end if;
                 enable_count_sig <= '1';
                 read_address_A <= STD_LOGIC_VECTOR(TO_UNSIGNED(TO_INTEGER(UNSIGNED(pixel_cntr)) + slice_cntr_A*MAT_LENGTH*ARRAY_SIZE, clog2(MAT_A_ROWS * MAT_LENGTH)));
@@ -241,19 +241,19 @@ begin
                 
                 for row in 0 to ARRAY_SIZE-1 loop 
                     for col in 0 to ARRAY_SIZE-1 loop
-                        if ((UNSIGNED(pixel_cntr) = ((row + col) mod ARRAY_SIZE)  + (TO_INTEGER(UNSIGNED(pixel_cntr)) / ARRAY_SIZE * ARRAY_SIZE)) and (row + col <= init_count)) then
+                        if ((UNSIGNED(pixel_cntr) = ((row + col) mod MAT_LENGTH)) and (row + col < init_count)) then
                             init_sig(row)(col) <= '1';
                         else
                             init_sig(row)(col) <= '0';
                         end if;
                         if (valid_sum_sig(row)(col) = '1') then
                             valid_sum_count(row)(col) := valid_sum_count(row)(col) + 1;
-                            if (valid_sum_count(row)(col) >= (MAT_A_ROWS / ARRAY_SIZE)*(MAT_B_COLS / ARRAY_SIZE)) then
-                                valid_sum_count(row)(col) := 0;
+                            if (valid_sum_count(row)(col) > (MAT_A_ROWS / ARRAY_SIZE)*(MAT_B_COLS / ARRAY_SIZE)) then
+                                valid_sum_count(row)(col) := 1;
                                 if (UNSIGNED(valid_sum_reg(row)(col)) < VALID_KIND) then
                                     valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(UNSIGNED(valid_sum_reg(row)(col)) + 1);
                                 else
-                                    valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(TO_UNSIGNED(1, clog2(VALID_KIND)+1));
+                                    valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(TO_UNSIGNED(1, clog2(VALID_KIND+1)));
                                 end if;
                             end if;
                             D(OUTPUT_WIDTH * (row*ARRAY_SIZE+col + 1) -1 downto OUTPUT_WIDTH * (row*ARRAY_SIZE+col)) <= out_sum_sig(row)(col);
@@ -264,7 +264,7 @@ begin
                         end if;
                     end loop;
                 end loop;
-                if (UNSIGNED(pixel_cntr) = MAT_LENGTH-1 and UNSIGNED(slice_cntr) = (MAT_A_ROWS / ARRAY_SIZE)*(MAT_B_COLS / ARRAY_SIZE) -1) then
+                if (UNSIGNED(pixel_cntr) = MAT_LENGTH-1 and UNSIGNED(slice_cntr) = (MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE)**2) -1) then
                     input_done <= '1';
                 else
                     input_done <= '0';
