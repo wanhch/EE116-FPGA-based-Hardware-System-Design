@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_systolic_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="test_systolic" />
+            <top_module name="util_package" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1477001fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="258"></NameColumnWidth>
+      <ValueColumnWidth column_width="124"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/test_systolic/clk_sig" type="logic">
+      <obj_property name="ElementShortName">clk_sig</obj_property>
+      <obj_property name="ObjectShortName">clk_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/rst_sig" type="logic">
+      <obj_property name="ElementShortName">rst_sig</obj_property>
+      <obj_property name="ObjectShortName">rst_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/matrix_A" type="array">
+      <obj_property name="ElementShortName">matrix_A[0:8][0:8][7:0]</obj_property>
+      <obj_property name="ObjectShortName">matrix_A[0:8][0:8][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/matrix_B" type="array">
+      <obj_property name="ElementShortName">matrix_B[0:8][0:8][7:0]</obj_property>
+      <obj_property name="ObjectShortName">matrix_B[0:8][0:8][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/matrix_A_reference" type="array">
+      <obj_property name="ElementShortName">matrix_A_reference[0:8][0:8][7:0]</obj_property>
+      <obj_property name="ObjectShortName">matrix_A_reference[0:8][0:8][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/matrix_B_reference" type="array">
+      <obj_property name="ElementShortName">matrix_B_reference[0:8][0:8][7:0]</obj_property>
+      <obj_property name="ObjectShortName">matrix_B_reference[0:8][0:8][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/matrix_D" type="array">
+      <obj_property name="ElementShortName">matrix_D[0:8][0:8][19:0]</obj_property>
+      <obj_property name="ObjectShortName">matrix_D[0:8][0:8][19:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/D_list" type="array">
+      <obj_property name="ElementShortName">D_list[0:0][0:8][0:8][19:0]</obj_property>
+      <obj_property name="ObjectShortName">D_list[0:0][0:8][0:8][19:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/reference_D" type="array">
+      <obj_property name="ElementShortName">reference_D[0:0][0:8][0:8][19:0]</obj_property>
+      <obj_property name="ObjectShortName">reference_D[0:0][0:8][0:8][19:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/valid_count" type="array">
+      <obj_property name="ElementShortName">valid_count[0:0][0:8][0:8][4:0]</obj_property>
+      <obj_property name="ObjectShortName">valid_count[0:0][0:8][0:8][4:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/D_sig" type="array">
+      <obj_property name="ElementShortName">D_sig[179:0]</obj_property>
+      <obj_property name="ObjectShortName">D_sig[179:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/valid_D_sig" type="array">
+      <obj_property name="ElementShortName">valid_D_sig[8:0]</obj_property>
+      <obj_property name="ObjectShortName">valid_D_sig[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/read_address_A_sig" type="array">
+      <obj_property name="ElementShortName">read_address_A_sig[6:0]</obj_property>
+      <obj_property name="ObjectShortName">read_address_A_sig[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/read_address_B_sig" type="array">
+      <obj_property name="ElementShortName">read_address_B_sig[6:0]</obj_property>
+      <obj_property name="ObjectShortName">read_address_B_sig[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/input_A_sig" type="array">
+      <obj_property name="ElementShortName">input_A_sig[23:0]</obj_property>
+      <obj_property name="ObjectShortName">input_A_sig[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/input_B_sig" type="array">
+      <obj_property name="ElementShortName">input_B_sig[23:0]</obj_property>
+      <obj_property name="ObjectShortName">input_B_sig[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/matrix_in_done_sig" type="logic">
+      <obj_property name="ElementShortName">matrix_in_done_sig</obj_property>
+      <obj_property name="ObjectShortName">matrix_in_done_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/matrix_out_done_sig" type="logic">
+      <obj_property name="ElementShortName">matrix_out_done_sig</obj_property>
+      <obj_property name="ObjectShortName">matrix_out_done_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/gen_done" type="logic">
+      <obj_property name="ElementShortName">gen_done</obj_property>
+      <obj_property name="ObjectShortName">gen_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/read_done" type="logic">
+      <obj_property name="ElementShortName">read_done</obj_property>
+      <obj_property name="ObjectShortName">read_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/valid_count" type="array">
+      <obj_property name="ElementShortName">valid_count[0:0][0:8][0:8][4:0]</obj_property>
+      <obj_property name="ObjectShortName">valid_count[0:0][0:8][0:8][4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_systolic/valid_count" type="array">
+      <obj_property name="ElementShortName">valid_count[0:0][0:8][0:8][4:0]</obj_property>
+      <obj_property name="ObjectShortName">valid_count[0:0][0:8][0:8][4:0]</obj_property>
+   </wvobject>
+</wave_config>

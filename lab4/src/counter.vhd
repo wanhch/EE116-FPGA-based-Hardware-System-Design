@@ -33,7 +33,7 @@ begin
             pixel <= (others => '0');
             slice <= (others => '0');
         elsif (enable_row_count = '1') then
-            if (pixel < WIDTH) then
+            if (pixel < WIDTH-1) then
                 pixel <= pixel + 1;
             else
                 pixel <= (others => '0');

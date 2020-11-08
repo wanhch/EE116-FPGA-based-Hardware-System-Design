@@ -90,16 +90,16 @@ architecture Behavioral of systolic is
     signal valid_sum_sig: LogicMatrixType := (others => (others => '0'));    
 
     signal enable_count_sig: STD_LOGIC;
-    signal pixel_cntr: STD_LOGIC_VECTOR(clog2(MAT_LENGTH - 1)-1 downto 0) := (others => 'U');
+    signal pixel_cntr: STD_LOGIC_VECTOR(clog2(MAT_LENGTH)-1 downto 0) := (others => 'U');
     signal slice_cntr: STD_LOGIC_VECTOR(clog2((MAT_LENGTH / ARRAY_SIZE)**2)-1 downto 0) := (others => 'U');
-    signal slice_cntr_A: STD_LOGIC_VECTOR(clog2(MAT_A_ROWS / ARRAY_SIZE) downto 0) := (others => 'U');
-    signal slice_cntr_B: STD_LOGIC_VECTOR(clog2(MAT_B_COLS / ARRAY_SIZE)-1 downto 0) := (others => 'U');
+    signal slice_cntr_A: INTEGER := 0;
+    signal slice_cntr_B: INTEGER := 0;
 
 begin
     CNT: counter 
         generic map (
-            WIDTH => MAT_LENGTH -1,
-            HEIGHT => ((MAT_LENGTH / ARRAY_SIZE)**2 -1))
+            WIDTH => MAT_LENGTH,
+            HEIGHT => ((MAT_LENGTH / ARRAY_SIZE)**2))
         port map (
             clk => clk,
             rst => rst,
@@ -201,20 +201,17 @@ begin
 --                Q => stream_B_input_sig(idx)(0));
 --        end generate;
     
-    slice_cntr_A <= STD_LOGIC_VECTOR(UNSIGNED(slice_cntr) / (MAT_B_COLS / ARRAY_SIZE));
-    slice_cntr_B <= STD_LOGIC_VECTOR(UNSIGNED(slice_cntr) mod (MAT_B_COLS / ARRAY_SIZE));
+    slice_cntr_A <= TO_INTEGER(UNSIGNED(slice_cntr)) / (MAT_B_COLS / ARRAY_SIZE);
+    slice_cntr_B <= TO_INTEGER(UNSIGNED(slice_cntr)) mod (MAT_B_COLS / ARRAY_SIZE);
 
     process(clk)
         type ValidCountLineType is array(0 to ARRAY_SIZE-1) of INTEGER;
         type ValidCountMatrixType is array (0 to ARRAY_SIZE-1) of ValidCountLineType;
-
         variable valid_sum_count: ValidCountMatrixType := (others => (others => (1)));
 
-        type ValidLineType is array(0 to ARRAY_SIZE-1) of STD_LOGIC_VECTOR(clog2(VALID_KIND) downto 0);
+        type ValidLineType is array(0 to ARRAY_SIZE-1) of STD_LOGIC_VECTOR(clog2(VALID_KIND + 1)-1 downto 0);
         type ValidMatrixType is array (0 to ARRAY_SIZE-1) of ValidLineType;
-
         variable valid_sum_reg: ValidMatrixType := (others => (others => (others => '0')));
-
 
         variable init_count: INTEGER := 0;
     begin
@@ -239,12 +236,12 @@ begin
                     init_count := 2 * ARRAY_SIZE - 2;
                 end if;
                 enable_count_sig <= '1';
-                read_address_A <= STD_LOGIC_VECTOR(TO_UNSIGNED(TO_INTEGER(UNSIGNED(pixel_cntr)) + TO_INTEGER(UNSIGNED(slice_cntr_A))*MAT_LENGTH*ARRAY_SIZE, clog2(MAT_A_ROWS * MAT_LENGTH)));
-                read_address_B <= STD_LOGIC_VECTOR(TO_UNSIGNED(TO_INTEGER(UNSIGNED(pixel_cntr)) * MAT_B_COLS + TO_INTEGER(UNSIGNED(slice_cntr_B)*ARRAY_SIZE), clog2(MAT_LENGTH * MAT_B_COLS)));
+                read_address_A <= STD_LOGIC_VECTOR(TO_UNSIGNED(TO_INTEGER(UNSIGNED(pixel_cntr)) + slice_cntr_A*MAT_LENGTH*ARRAY_SIZE, clog2(MAT_A_ROWS * MAT_LENGTH)));
+                read_address_B <= STD_LOGIC_VECTOR(TO_UNSIGNED(TO_INTEGER(UNSIGNED(pixel_cntr)) * MAT_B_COLS + slice_cntr_B*ARRAY_SIZE, clog2(MAT_LENGTH * MAT_B_COLS)));
                 
                 for row in 0 to ARRAY_SIZE-1 loop 
                     for col in 0 to ARRAY_SIZE-1 loop
-                        if ((UNSIGNED(pixel_cntr) = (row + col) mod ARRAY_SIZE) and (row + col <= init_count)) then
+                        if ((UNSIGNED(pixel_cntr) = ((row + col) mod ARRAY_SIZE)  + (TO_INTEGER(UNSIGNED(pixel_cntr)) / ARRAY_SIZE * ARRAY_SIZE)) and (row + col <= init_count)) then
                             init_sig(row)(col) <= '1';
                         else
                             init_sig(row)(col) <= '0';
