@@ -205,9 +205,9 @@ begin
     slice_cntr_B <= TO_INTEGER(UNSIGNED(slice_cntr)) mod (MAT_B_COLS / ARRAY_SIZE);
 
     process(clk)
-        type ValidCountLineType is array(0 to ARRAY_SIZE-1) of INTEGER;
-        type ValidCountMatrixType is array (0 to ARRAY_SIZE-1) of ValidCountLineType;
-        variable valid_sum_count: ValidCountMatrixType := (others => (others => (1)));
+        --type ValidCountLineType is array(0 to ARRAY_SIZE-1) of INTEGER;
+        --type ValidCountMatrixType is array (0 to ARRAY_SIZE-1) of ValidCountLineType;
+        --variable valid_sum_count: ValidCountMatrixType := (others => (others => (1)));
 
         type ValidLineType is array(0 to ARRAY_SIZE-1) of STD_LOGIC_VECTOR(clog2(VALID_KIND + 1)-1 downto 0);
         type ValidMatrixType is array (0 to ARRAY_SIZE-1) of ValidLineType;
@@ -221,8 +221,9 @@ begin
                 init_count := 0;
                 init_sig <= (others => (others => '0'));
                 enable_count_sig <= '0';
-                valid_sum_reg := (others => (others => (STD_LOGIC_VECTOR(TO_UNSIGNED(1, clog2(VALID_KIND+1))))));
-                valid_sum_count := (others => (others => 0));
+                --valid_sum_reg := (others => (others => (STD_LOGIC_VECTOR(TO_UNSIGNED(1, clog2(VALID_KIND+1))))));
+                valid_sum_reg := (others => (others => (others => '0')));
+                --valid_sum_count := (others => (others => 0));
                 read_address_A <= (others => '0');
                 read_address_B <= (others => '0');
 --                out_sum_sig <= (others => (others => (others => '0')));
@@ -247,15 +248,20 @@ begin
                             init_sig(row)(col) <= '0';
                         end if;
                         if (valid_sum_sig(row)(col) = '1') then
-                            valid_sum_count(row)(col) := valid_sum_count(row)(col) + 1;
-                            if (valid_sum_count(row)(col) > (MAT_A_ROWS / ARRAY_SIZE)*(MAT_B_COLS / ARRAY_SIZE)) then
-                                valid_sum_count(row)(col) := 1;
-                                if (UNSIGNED(valid_sum_reg(row)(col)) < VALID_KIND) then
-                                    valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(UNSIGNED(valid_sum_reg(row)(col)) + 1);
-                                else
-                                    valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(TO_UNSIGNED(1, clog2(VALID_KIND+1)));
-                                end if;
+                            if (TO_INTEGER(UNSIGNED(valid_sum_reg(row)(col))) <  VALID_KIND) then
+                                valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(UNSIGNED(valid_sum_reg(row)(col)) + 1);
+                            else
+                                valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(TO_UNSIGNED(1, clog2(VALID_KIND + 1)));
                             end if;
+                            --valid_sum_count(row)(col) := valid_sum_count(row)(col) + 1;
+                            --if (valid_sum_count(row)(col) > (MAT_A_ROWS / ARRAY_SIZE)*(MAT_B_COLS / ARRAY_SIZE)) then
+                            --    valid_sum_count(row)(col) := 1;
+                            --    if (UNSIGNED(valid_sum_reg(row)(col)) < VALID_KIND) then
+                            --        valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(UNSIGNED(valid_sum_reg(row)(col)) + 1);
+                            --    else
+                            --        valid_sum_reg(row)(col) := STD_LOGIC_VECTOR(TO_UNSIGNED(1, clog2(VALID_KIND+1)));
+                            --    end if;
+                            --end if;
                             D(OUTPUT_WIDTH * (row*ARRAY_SIZE+col + 1) -1 downto OUTPUT_WIDTH * (row*ARRAY_SIZE+col)) <= out_sum_sig(row)(col);
                             valid_D(clog2(VALID_KIND+1) * (row*ARRAY_SIZE+col + 1) -1 downto clog2(VALID_KIND+1) * (row*ARRAY_SIZE+col)) <= valid_sum_reg(row)(col);
                         else

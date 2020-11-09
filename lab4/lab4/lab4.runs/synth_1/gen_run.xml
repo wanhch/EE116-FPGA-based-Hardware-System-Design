@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1604871520">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1604929457">
   <File Type="PA-TCL" Name="systolic.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="systolic_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="systolic_reports.tcl"/>
