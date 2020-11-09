@@ -12,14 +12,14 @@ use work.util_package.ALL;
 
 entity test_systolic is
     Generic(
-        MAT_A_ROWS : POSITIVE := 49;
-        MAT_LENGTH : POSITIVE := 5;
-        MAT_B_COLS : POSITIVE := 56;
-        ARRAY_SIZE : POSITIVE := 7;
-        INPUT_WIDTH : POSITIVE := 8;
-        RAND_SEED_A : POSITIVE := 1;
+        MAT_A_ROWS : POSITIVE := 4;
+        MAT_LENGTH : POSITIVE := 4;
+        MAT_B_COLS : POSITIVE := 4;
+        ARRAY_SIZE : POSITIVE := 4;
+        INPUT_WIDTH : POSITIVE := 14;
+        RAND_SEED_A : POSITIVE := 3;
         RAND_SEED_B : POSITIVE := 2;
-        SAMPLE_NUM : POSITIVE := 4;
+        SAMPLE_NUM : POSITIVE := 2000000;
         VALID_KIND : POSITIVE := get_valid_kind(ARRAY_SIZE, MAT_LENGTH);
         OUTPUT_WIDTH : POSITIVE := INPUT_WIDTH*2 + clog2(MAT_LENGTH));
 --  Port ( );
@@ -148,7 +148,7 @@ begin
                 wait until falling_edge(clk_sig);
             end loop;
             file_close(file_out);
-            wait for 20ns;
+            wait for 20 ns;
             gen_done <= '1';
             wait;
         end process gen_input;
@@ -202,7 +202,7 @@ begin
         end process send_input;
 
     cal_result: process(valid_D_sig)
-        type ValidLineType is array(0 to ARRAY_SIZE-1) of STD_LOGIC_VECTOR(clog2(VALID_KIND+1) * MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2)-1 downto 0);
+        type ValidLineType is array(0 to ARRAY_SIZE-1) of STD_LOGIC_VECTOR(clog2(MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2) + 1)-1 downto 0);
         type ValidMatrixType is array(0 to ARRAY_SIZE-1) of ValidLineType;
         type ValidMatrixListType is array(0 to VALID_KIND-1) of ValidMatrixType;
         variable valid_count: ValidMatrixListType := ( others => (others => (others => (others => '0'))));
@@ -222,7 +222,7 @@ begin
             for row in 0 to ARRAY_SIZE-1 loop 
                 for col in 0 to ARRAY_SIZE-1 loop 
                     valid_sig := TO_INTEGER(UNSIGNED(valid_D_sig(clog2(VALID_KIND+1) * (row*ARRAY_SIZE+col + 1) -1 downto clog2(VALID_KIND+1) * (row*ARRAY_SIZE+col))));
-                    if (valid_sig > 0) then
+                    if (valid_sig > 0 and valid_sig <= VALID_KIND and TO_INTEGER(UNSIGNED(valid_count(valid_sig-1)(row)(col))) < MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2)) then
                         D_list(valid_sig-1)(row + TO_INTEGER(UNSIGNED(valid_count(valid_sig-1)(row)(col))) / slice * ARRAY_SIZE)(col + TO_INTEGER(UNSIGNED(valid_count(valid_sig-1)(row)(col))) mod slice * ARRAY_SIZE) <= D_sig(OUTPUT_WIDTH * (row*ARRAY_SIZE+col + 1) -1 downto OUTPUT_WIDTH * (row*ARRAY_SIZE+col));
                         if (TO_INTEGER(UNSIGNED(valid_count(valid_sig-1)(row)(col))) < MAT_A_ROWS * MAT_B_COLS / (ARRAY_SIZE**2)) then
                             valid_count(valid_sig-1)(row)(col) := STD_LOGIC_VECTOR(UNSIGNED(valid_count(valid_sig-1)(row)(col)) + 1);
