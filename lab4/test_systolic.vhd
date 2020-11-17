@@ -12,14 +12,14 @@ use work.util_package.ALL;
 
 entity test_systolic is
     Generic(
-        MAT_A_ROWS : POSITIVE := 49;
-        MAT_LENGTH : POSITIVE := 5;
-        MAT_B_COLS : POSITIVE := 56;
-        ARRAY_SIZE : POSITIVE := 7;
+        MAT_A_ROWS : POSITIVE := 4;
+        MAT_LENGTH : POSITIVE := 4;
+        MAT_B_COLS : POSITIVE := 4;
+        ARRAY_SIZE : POSITIVE := 4;
         INPUT_WIDTH : POSITIVE := 8;
-        RAND_SEED_A : POSITIVE := 3;
+        RAND_SEED_A : POSITIVE := 1;
         RAND_SEED_B : POSITIVE := 2;
-        SAMPLE_NUM : POSITIVE := 10;
+        SAMPLE_NUM : POSITIVE := 4;
         VALID_KIND : POSITIVE := get_valid_kind(ARRAY_SIZE, MAT_LENGTH);
         OUTPUT_WIDTH : POSITIVE := INPUT_WIDTH*2 + clog2(MAT_LENGTH));
 --  Port ( );
