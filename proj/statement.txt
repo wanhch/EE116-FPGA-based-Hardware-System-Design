@@ -1,0 +1,49 @@
+behav simulation:
+    128-bit AES encryption pass the behav simulation: 
+        True;
+    192-bit AES encryption pass the behav simulation: 
+        True;
+    256-bit AES encryption pass the behav simulation: 
+        True;
+    128-bit AES decryption pass the behav simulation: 
+        True;
+    192-bit AES decryption pass the behav simulation: 
+        True;
+    256-bit AES decryption pass the behav simulation: 
+        True;
+
+post-synthesis timing simulation:
+    128-bit AES encryption pass the post-synthesis timing simulation: 
+        True;
+    192-bit AES encryption pass the post-synthesis timing simulation: 
+        True;
+    256-bit AES encryption pass the post-synthesis timing simulation: 
+        True;
+    128-bit AES decryption pass the post-synthesis timing simulation: 
+        True;
+    192-bit AES decryption pass the post-synthesis timing simulation: 
+        True;
+    256-bit AES decryption pass the post-synthesis timing simulation: 
+        True;
+
+auto test system:
+    finished complete auto test system:
+        True;
+
+system block diagram:
+    finished qualified system block diagram:
+        True;
+
+report:
+    finished report:
+        True;
+
+extra work:
+    I think these works deserve extra points:
+        Pipeline architecture, continuous processing of test data;
+        Extreme resource optimization, the resource consumption per throughput is lower than everyone else;
+        Extreme time optimization, every 100 sets of test data consumes less time than everyone else;
+        Adjustable number of input ports, can adapt to more scenarios;
+        Dynamic encryption and decryption, encryption operation or decryption operation can be selected in running time;
+        Adaptive key length, the key length can be changed in running time;
+        Complete comments, standard writing, my code can be used as a tutorial;
