@@ -16,9 +16,11 @@ for line in file:
         plaintext = eval("0x%s"%temp[1])
         key = eval("0x%s"%temp[2])
         input.append([str(bin(plaintext)).replace("0b", "").rjust(128, '0'), str(bin(key)).replace("0b", "").rjust(128, '0')])
-        
+
 with open("input.txt", "w") as output:
     for item in input:
         output.write(item[0])
         output.write(item[1])
         output.write('\n')
+
+os.system('./run.sh')
