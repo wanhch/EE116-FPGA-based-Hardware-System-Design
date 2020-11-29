@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import os
+import struct
 
 with open("../eval/AES_testcases_128.txt", "r") as input_file:
     file = input_file.readlines()
@@ -14,8 +15,8 @@ for line in file:
     else:
         plaintext = eval("0x%s"%temp[1])
         key = eval("0x%s"%temp[2])
-        input.append([str(bin(plaintext)).replace("0b", ""), str(bin(key)).replace("0b", "")])
-
+        input.append([str(bin(plaintext)).replace("0b", "").rjust(128, '0'), str(bin(key)).replace("0b", "").rjust(128, '0')])
+        
 with open("input.txt", "w") as output:
     for item in input:
         output.write(item[0])

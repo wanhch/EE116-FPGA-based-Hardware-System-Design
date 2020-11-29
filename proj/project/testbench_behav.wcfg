@@ -12,12 +12,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1051180fs"></ZoomEndTime>
-      <Cursor1Time time="183574fs"></Cursor1Time>
+      <ZoomEndTime time="723500001fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="298"></NameColumnWidth>
-      <ValueColumnWidth column_width="129"></ValueColumnWidth>
+      <ValueColumnWidth column_width="119"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="14" />
    <wvobject fp_name="/testbench/clk" type="logic">
@@ -28,23 +28,19 @@
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/mode" type="logic">
-      <obj_property name="ElementShortName">mode</obj_property>
-      <obj_property name="ObjectShortName">mode</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/key" type="array">
-      <obj_property name="ElementShortName">key[1:4][1:4][7:0]</obj_property>
-      <obj_property name="ObjectShortName">key[1:4][1:4][7:0]</obj_property>
+      <obj_property name="ElementShortName">key[127:0]</obj_property>
+      <obj_property name="ObjectShortName">key[127:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/input" type="array">
-      <obj_property name="ElementShortName">input[1:4][1:4][7:0]</obj_property>
-      <obj_property name="ObjectShortName">input[1:4][1:4][7:0]</obj_property>
+      <obj_property name="ElementShortName">input[127:0]</obj_property>
+      <obj_property name="ObjectShortName">input[127:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/output" type="array">
-      <obj_property name="ElementShortName">output[1:4][1:4][7:0]</obj_property>
-      <obj_property name="ObjectShortName">output[1:4][1:4][7:0]</obj_property>
+      <obj_property name="ElementShortName">output[127:0]</obj_property>
+      <obj_property name="ObjectShortName">output[127:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/done" type="logic">
@@ -54,10 +50,6 @@
    <wvobject fp_name="/testbench/uut/text_tran" type="array">
       <obj_property name="ElementShortName">text_tran[1:10][0:3][1:4][1:4][7:0]</obj_property>
       <obj_property name="ObjectShortName">text_tran[1:10][0:3][1:4][1:4][7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/uut/\MCGen(1)\/MC/mode" type="logic">
-      <obj_property name="ElementShortName">mode</obj_property>
-      <obj_property name="ObjectShortName">mode</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/uut/ARK0/output" type="array">
       <obj_property name="ElementShortName">output[1:4][1:4][7:0]</obj_property>
@@ -83,5 +75,13 @@
       <obj_property name="ElementShortName">output[1:4][1:4][7:0]</obj_property>
       <obj_property name="ObjectShortName">output[1:4][1:4][7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/init" type="logic">
+      <obj_property name="ElementShortName">init</obj_property>
+      <obj_property name="ObjectShortName">init</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/key" type="array">
+      <obj_property name="ElementShortName">key[127:0]</obj_property>
+      <obj_property name="ObjectShortName">key[127:0]</obj_property>
    </wvobject>
 </wave_config>

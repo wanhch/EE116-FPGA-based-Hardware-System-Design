@@ -2,102 +2,103 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Nov 30 00:07:17 2020
-# Process ID: 14188
+# Start of session at: Mon Nov 30 01:50:51 2020
+# Process ID: 15004
 # Current directory: D:/Courses/FPGA/proj/project/project.runs/synth_1
 # Command line: vivado.exe -log AES.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source AES.tcl
 # Log file: D:/Courses/FPGA/proj/project/project.runs/synth_1/AES.vds
 # Journal file: D:/Courses/FPGA/proj/project/project.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source AES.tcl -notrace
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1060.656 ; gain = 0.000
 Command: synth_design -top AES -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15252
+INFO: [Synth 8-7075] Helper process launched with PID 1648
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1079.016 ; gain = 0.000
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1060.656 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'AES' [D:/Courses/FPGA/proj/src/AES.vhd:18]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK0' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:75]
+INFO: [Synth 8-638] synthesizing module 'AES' [D:/Courses/FPGA/proj/src/AES.vhd:19]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK0' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:76]
 INFO: [Synth 8-638] synthesizing module 'AddRoundKey' [D:/Courses/FPGA/proj/src/AddRoundKey.vhd:17]
 INFO: [Synth 8-256] done synthesizing module 'AddRoundKey' (1#1) [D:/Courses/FPGA/proj/src/AddRoundKey.vhd:17]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
 INFO: [Synth 8-638] synthesizing module 'KeyExpansion' [D:/Courses/FPGA/proj/src/KeyExpansion.vhd:17]
 INFO: [Synth 8-256] done synthesizing module 'KeyExpansion' (2#1) [D:/Courses/FPGA/proj/src/KeyExpansion.vhd:17]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:86]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'KeyExpansion' declared at 'D:/Courses/FPGA/proj/src/KeyExpansion.vhd:8' bound to instance 'KeyExp' of component 'KeyExpansion' [D:/Courses/FPGA/proj/src/AES.vhd:87]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
 INFO: [Synth 8-638] synthesizing module 'SubBytes' [D:/Courses/FPGA/proj/src/SubBytes.vhd:16]
 INFO: [Synth 8-256] done synthesizing module 'SubBytes' (3#1) [D:/Courses/FPGA/proj/src/SubBytes.vhd:16]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:98]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:99]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
 INFO: [Synth 8-638] synthesizing module 'ShiftRows' [D:/Courses/FPGA/proj/src/ShiftRows.vhd:16]
 INFO: [Synth 8-256] done synthesizing module 'ShiftRows' (4#1) [D:/Courses/FPGA/proj/src/ShiftRows.vhd:16]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:109]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:110]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
 INFO: [Synth 8-638] synthesizing module 'MixColumns' [D:/Courses/FPGA/proj/src/MixColumns.vhd:16]
 INFO: [Synth 8-256] done synthesizing module 'MixColumns' (5#1) [D:/Courses/FPGA/proj/src/MixColumns.vhd:16]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
-INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:121]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:132]
-INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB1' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:141]
-INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR1' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:148]
-INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK1' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:155]
-INFO: [Synth 8-256] done synthesizing module 'AES' (6#1) [D:/Courses/FPGA/proj/src/AES.vhd:18]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
+INFO: [Synth 8-3491] module 'MixColumns' declared at 'D:/Courses/FPGA/proj/src/MixColumns.vhd:8' bound to instance 'MC' of component 'MixColumns' [D:/Courses/FPGA/proj/src/AES.vhd:122]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:133]
+INFO: [Synth 8-3491] module 'SubBytes' declared at 'D:/Courses/FPGA/proj/src/SubBytes.vhd:8' bound to instance 'SB1' of component 'SubBytes' [D:/Courses/FPGA/proj/src/AES.vhd:142]
+INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/ShiftRows.vhd:8' bound to instance 'SR1' of component 'ShiftRows' [D:/Courses/FPGA/proj/src/AES.vhd:149]
+INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK1' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:156]
+INFO: [Synth 8-256] done synthesizing module 'AES' (6#1) [D:/Courses/FPGA/proj/src/AES.vhd:19]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1278.949 ; gain = 199.934
+Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1282.820 ; gain = 222.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1278.949 ; gain = 199.934
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1282.820 ; gain = 222.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1278.949 ; gain = 199.934
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1282.820 ; gain = 222.164
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:20 . Memory (MB): peak = 1278.949 ; gain = 199.934
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1282.820 ; gain = 222.164
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -112,8 +113,10 @@ Detailed RTL Component Info :
 +---Registers : 
 	              128 Bit    Registers := 1     
 	                8 Bit    Registers := 832   
+	                1 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input    8 Bit        Muxes := 144   
+	   2 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -131,20 +134,20 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:37 ; elapsed = 00:01:39 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:01:44 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:38 ; elapsed = 00:01:40 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Timing Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:01:45 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:41 ; elapsed = 00:01:44 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Technology Mapping : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -162,37 +165,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:47 ; elapsed = 00:01:50 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished IO Insertion : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:47 ; elapsed = 00:01:50 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -205,26 +208,28 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |BUFG  |     1|
-|2     |LUT2  |  1552|
-|3     |LUT5  |  1360|
-|4     |LUT6  |  7472|
-|5     |MUXF7 |  3200|
-|6     |MUXF8 |  1600|
-|7     |FDCE  |  6400|
-|8     |FDRE  |   384|
-|9     |IBUF  |   258|
-|10    |OBUF  |   129|
-+------+------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    12|
+|3     |LUT1   |     3|
+|4     |LUT2   |  1603|
+|5     |LUT5   |  1360|
+|6     |LUT6   |  7472|
+|7     |MUXF7  |  3200|
+|8     |MUXF8  |  1600|
+|9     |FDCE   |  6433|
+|10    |FDRE   |   384|
+|11    |IBUF   |   259|
+|12    |OBUF   |   129|
++------+-------+------+
 
 Report Instance Areas: 
 +------+----------------------+----------------+------+
 |      |Instance              |Module          |Cells |
 +------+----------------------+----------------+------+
-|1     |top                   |                | 22356|
+|1     |top                   |                | 22456|
 |2     |  \MCGen[1].MC        |MixColumns      |   128|
 |3     |  \MCGen[2].MC        |MixColumns_19   |   128|
 |4     |  \MCGen[3].MC        |MixColumns_20   |   128|
@@ -235,37 +240,37 @@ Report Instance Areas:
 |9     |  \MCGen[8].MC        |MixColumns_25   |   128|
 |10    |  \MCGen[9].MC        |MixColumns_26   |   128|
 |11    |  ARK1                |AddRoundKey_0   |   128|
-|12    |  SR1                 |ShiftRows       |   128|
-|13    |  ARK0                |AddRoundKey     |  1152|
-|14    |  \ARKGen[1].ARK      |AddRoundKey_1   |  1024|
-|15    |  \ARKGen[2].ARK      |AddRoundKey_2   |  1024|
-|16    |  \ARKGen[3].ARK      |AddRoundKey_3   |  1024|
-|17    |  \ARKGen[4].ARK      |AddRoundKey_4   |  1024|
-|18    |  \ARKGen[5].ARK      |AddRoundKey_5   |  1024|
-|19    |  \ARKGen[6].ARK      |AddRoundKey_6   |  1024|
-|20    |  \ARKGen[7].ARK      |AddRoundKey_7   |  1024|
-|21    |  \ARKGen[8].ARK      |AddRoundKey_8   |  1024|
-|22    |  \ARKGen[9].ARK      |AddRoundKey_9   |  1024|
-|23    |  \KeyGen[10].KeyExp  |KeyExpansion    |   256|
-|24    |  \KeyGen[1].KeyExp   |KeyExpansion_10 |   960|
-|25    |  \KeyGen[2].KeyExp   |KeyExpansion_11 |   608|
-|26    |  \KeyGen[3].KeyExp   |KeyExpansion_12 |   608|
-|27    |  \KeyGen[4].KeyExp   |KeyExpansion_13 |   608|
-|28    |  \KeyGen[5].KeyExp   |KeyExpansion_14 |   608|
-|29    |  \KeyGen[6].KeyExp   |KeyExpansion_15 |   608|
-|30    |  \KeyGen[7].KeyExp   |KeyExpansion_16 |   608|
-|31    |  \KeyGen[8].KeyExp   |KeyExpansion_17 |   608|
-|32    |  \KeyGen[9].KeyExp   |KeyExpansion_18 |   608|
-|33    |  SB1                 |SubBytes        |   128|
-|34    |  \SBGen[1].SB        |SubBytes_27     |   128|
-|35    |  \SBGen[2].SB        |SubBytes_28     |   128|
-|36    |  \SBGen[3].SB        |SubBytes_29     |   128|
-|37    |  \SBGen[4].SB        |SubBytes_30     |   128|
-|38    |  \SBGen[5].SB        |SubBytes_31     |   128|
-|39    |  \SBGen[6].SB        |SubBytes_32     |   128|
-|40    |  \SBGen[7].SB        |SubBytes_33     |   128|
-|41    |  \SBGen[8].SB        |SubBytes_34     |   128|
-|42    |  \SBGen[9].SB        |SubBytes_35     |   128|
+|12    |  ARK0                |AddRoundKey     |  1152|
+|13    |  \ARKGen[1].ARK      |AddRoundKey_1   |  1024|
+|14    |  \ARKGen[2].ARK      |AddRoundKey_2   |  1024|
+|15    |  \ARKGen[3].ARK      |AddRoundKey_3   |  1024|
+|16    |  \ARKGen[4].ARK      |AddRoundKey_4   |  1024|
+|17    |  \ARKGen[5].ARK      |AddRoundKey_5   |  1024|
+|18    |  \ARKGen[6].ARK      |AddRoundKey_6   |  1024|
+|19    |  \ARKGen[7].ARK      |AddRoundKey_7   |  1024|
+|20    |  \ARKGen[8].ARK      |AddRoundKey_8   |  1024|
+|21    |  \ARKGen[9].ARK      |AddRoundKey_9   |  1024|
+|22    |  \KeyGen[10].KeyExp  |KeyExpansion    |   256|
+|23    |  \KeyGen[1].KeyExp   |KeyExpansion_10 |   960|
+|24    |  \KeyGen[2].KeyExp   |KeyExpansion_11 |   608|
+|25    |  \KeyGen[3].KeyExp   |KeyExpansion_12 |   608|
+|26    |  \KeyGen[4].KeyExp   |KeyExpansion_13 |   608|
+|27    |  \KeyGen[5].KeyExp   |KeyExpansion_14 |   608|
+|28    |  \KeyGen[6].KeyExp   |KeyExpansion_15 |   608|
+|29    |  \KeyGen[7].KeyExp   |KeyExpansion_16 |   608|
+|30    |  \KeyGen[8].KeyExp   |KeyExpansion_17 |   608|
+|31    |  \KeyGen[9].KeyExp   |KeyExpansion_18 |   608|
+|32    |  SB1                 |SubBytes        |   128|
+|33    |  \SBGen[1].SB        |SubBytes_27     |   128|
+|34    |  \SBGen[2].SB        |SubBytes_28     |   128|
+|35    |  \SBGen[3].SB        |SubBytes_29     |   128|
+|36    |  \SBGen[4].SB        |SubBytes_30     |   128|
+|37    |  \SBGen[5].SB        |SubBytes_31     |   128|
+|38    |  \SBGen[6].SB        |SubBytes_32     |   128|
+|39    |  \SBGen[7].SB        |SubBytes_33     |   128|
+|40    |  \SBGen[8].SB        |SubBytes_34     |   128|
+|41    |  \SBGen[9].SB        |SubBytes_35     |   128|
+|42    |  SR1                 |ShiftRows       |   128|
 |43    |  \SRGen[1].SR        |ShiftRows_36    |   272|
 |44    |  \SRGen[2].SR        |ShiftRows_37    |   272|
 |45    |  \SRGen[3].SR        |ShiftRows_38    |   272|
@@ -277,25 +282,25 @@ Report Instance Areas:
 |51    |  \SRGen[9].SR        |ShiftRows_44    |   272|
 +------+----------------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:52 ; elapsed = 00:01:57 . Memory (MB): peak = 1475.785 ; gain = 415.129
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:49 ; elapsed = 00:01:51 . Memory (MB): peak = 1473.230 ; gain = 394.215
-Synthesis Optimization Complete : Time (s): cpu = 00:01:49 ; elapsed = 00:01:51 . Memory (MB): peak = 1473.230 ; gain = 394.215
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:52 ; elapsed = 00:01:57 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Synthesis Optimization Complete : Time (s): cpu = 00:01:52 ; elapsed = 00:01:57 . Memory (MB): peak = 1475.785 ; gain = 415.129
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.467 . Memory (MB): peak = 1473.230 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 4800 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.548 . Memory (MB): peak = 1475.785 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 4812 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1473.230 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1475.785 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 74 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:59 ; elapsed = 00:02:04 . Memory (MB): peak = 1473.230 ; gain = 394.215
+synth_design: Time (s): cpu = 00:02:03 ; elapsed = 00:02:10 . Memory (MB): peak = 1475.785 ; gain = 415.129
 INFO: [Common 17-1381] The checkpoint 'D:/Courses/FPGA/proj/project/project.runs/synth_1/AES.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file AES_utilization_synth.rpt -pb AES_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 30 00:09:30 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 30 01:53:31 2020...

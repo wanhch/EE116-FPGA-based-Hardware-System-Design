@@ -9,6 +9,7 @@ entity AES is
     Port ( 
         clk   : in  STD_LOGIC;
         rst   : in  STD_LOGIC;
+        init  : in  STD_LOGIC;
         key   : in  STD_LOGIC_VECTOR(127 downto 0);
         input : in  STD_LOGIC_VECTOR(127 downto 0);
         done  : out STD_LOGIC := '0';
@@ -166,6 +167,10 @@ begin
             count <= 0;
             done  <= '0';
         elsif (rising_edge(clk)) then
+            if (init = '1') then 
+                count <= 0;
+                done <= '0';
+            end if; 
             if (count < 45) then
                 count <= count + 1;
             else 
