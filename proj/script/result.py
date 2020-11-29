@@ -19,12 +19,12 @@ with open("output.txt", "r") as answer_file:
 with open("../eval/AES_results_encryption_128.txt", "w") as result_file:
     idx = 0
     for line in file:
-        print(line)
+        # print(line)
         temp = line.split()            
         if temp[0] == '0':
             cipher = eval("0x%s"%temp[3])
-            print(result[idx].strip())
-            print(str(bin(cipher)).replace("0b", "").rjust(128, '0'))
+            # print(result[idx].strip())
+            # print(str(bin(cipher)).replace("0b", "").rjust(128, '0'))
             if (result[idx].strip()  == str(bin(cipher)).replace("0b", "").rjust(128, '0')):
                 result_file.write('P')
             else:

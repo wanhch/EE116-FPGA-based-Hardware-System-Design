@@ -32,11 +32,11 @@ auto test system:
 
 system block diagram:
     finished qualified system block diagram:
-        False;
+        True;
 
 report:
     finished report:
-        False;
+        True;
 
 extra work:
     Nothing.
