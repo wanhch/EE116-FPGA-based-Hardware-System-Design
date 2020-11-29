@@ -10,16 +10,15 @@
     ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 
 source AES.tcl -notrace
-create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1060.656 ; gain = 0.000
 Command: synth_design -top AES -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1648
+INFO: [Synth 8-7075] Helper process launched with PID 13404
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1060.656 ; gain = 0.000
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1073.348 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'AES' [D:/Courses/FPGA/proj/src/AES.vhd:19]
 INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK0' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:76]
@@ -84,21 +83,21 @@ INFO: [Synth 8-3491] module 'ShiftRows' declared at 'D:/Courses/FPGA/proj/src/Sh
 INFO: [Synth 8-3491] module 'AddRoundKey' declared at 'D:/Courses/FPGA/proj/src/AddRoundKey.vhd:8' bound to instance 'ARK1' of component 'AddRoundKey' [D:/Courses/FPGA/proj/src/AES.vhd:156]
 INFO: [Synth 8-256] done synthesizing module 'AES' (6#1) [D:/Courses/FPGA/proj/src/AES.vhd:19]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1282.820 ; gain = 222.164
+Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1282.844 ; gain = 209.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1282.820 ; gain = 222.164
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1282.844 ; gain = 209.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1282.820 ; gain = 222.164
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1282.844 ; gain = 209.496
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1282.820 ; gain = 222.164
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1282.844 ; gain = 209.496
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -134,20 +133,20 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:01:44 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:42 ; elapsed = 00:01:51 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:41 ; elapsed = 00:01:45 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Timing Optimization : Time (s): cpu = 00:01:42 ; elapsed = 00:01:51 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Technology Mapping : Time (s): cpu = 00:01:46 ; elapsed = 00:01:55 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -165,37 +164,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished IO Insertion : Time (s): cpu = 00:01:52 ; elapsed = 00:02:01 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:52 ; elapsed = 00:02:01 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:53 ; elapsed = 00:02:02 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:53 ; elapsed = 00:02:02 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:53 ; elapsed = 00:02:03 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:52 ; elapsed = 00:01:56 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:53 ; elapsed = 00:02:03 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -282,25 +281,25 @@ Report Instance Areas:
 |51    |  \SRGen[9].SR        |ShiftRows_44    |   272|
 +------+----------------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:52 ; elapsed = 00:01:57 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:53 ; elapsed = 00:02:03 . Memory (MB): peak = 1483.031 ; gain = 409.684
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:52 ; elapsed = 00:01:57 . Memory (MB): peak = 1475.785 ; gain = 415.129
-Synthesis Optimization Complete : Time (s): cpu = 00:01:52 ; elapsed = 00:01:57 . Memory (MB): peak = 1475.785 ; gain = 415.129
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:53 ; elapsed = 00:02:03 . Memory (MB): peak = 1483.031 ; gain = 409.684
+Synthesis Optimization Complete : Time (s): cpu = 00:01:53 ; elapsed = 00:02:03 . Memory (MB): peak = 1483.031 ; gain = 409.684
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.548 . Memory (MB): peak = 1475.785 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.482 . Memory (MB): peak = 1483.031 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 4812 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1475.785 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1483.031 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 74 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:03 ; elapsed = 00:02:10 . Memory (MB): peak = 1475.785 ; gain = 415.129
+synth_design: Time (s): cpu = 00:02:04 ; elapsed = 00:02:15 . Memory (MB): peak = 1483.031 ; gain = 409.684
 INFO: [Common 17-1381] The checkpoint 'D:/Courses/FPGA/proj/project/project.runs/synth_1/AES.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file AES_utilization_synth.rpt -pb AES_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 30 01:53:31 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 30 03:37:32 2020...
