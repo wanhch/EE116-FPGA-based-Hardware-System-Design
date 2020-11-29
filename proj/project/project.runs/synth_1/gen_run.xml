@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1606643290">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1606666033">
   <File Type="PA-TCL" Name="AES.tcl"/>
   <File Type="REPORTS-TCL" Name="AES_reports.tcl"/>
   <File Type="RDS-RDS" Name="AES.vds"/>

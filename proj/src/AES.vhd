@@ -9,7 +9,6 @@ entity AES is
     Port ( 
         clk   : in  STD_LOGIC;
         rst   : in  STD_LOGIC;
-        mode  : in  STD_LOGIC; -- '0': encryption, '1': decryption
         key   : in  STD_LOGIC_VECTOR(127 downto 0);
         input : in  STD_LOGIC_VECTOR(127 downto 0);
         done  : out STD_LOGIC := '0';
@@ -31,7 +30,6 @@ architecture bhv of AES is
         Port ( 
             clk   : in  STD_LOGIC;
             rst   : in  STD_LOGIC;
-            mode  : in  STD_LOGIC; -- '0': encryption, '1': decryption
             input : in  work.util_package.TextBlock;
             output: out work.util_package.TextBlock := (others => (others => (others => '0'))));
     end component;
@@ -40,7 +38,6 @@ architecture bhv of AES is
         Port ( 
             clk   : in  STD_LOGIC;
             rst   : in  STD_LOGIC;
-            mode  : in  STD_LOGIC; -- '0': encryption, '1': decryption
             input : in  work.util_package.TextBlock;
             output: out work.util_package.TextBlock := (others => (others => (others => '0'))));
     end component;
@@ -49,7 +46,6 @@ architecture bhv of AES is
         Port ( 
             clk   : in  STD_LOGIC;
             rst   : in  STD_LOGIC;
-            mode  : in  STD_LOGIC; -- '0': encryption, '1': decryption
             input : in  work.util_package.TextBlock;
             output: out work.util_package.TextBlock);
     end component;
@@ -72,7 +68,7 @@ architecture bhv of AES is
 
     signal key_sig : work.util_package.KeyBlock := (others => (others => (others => '0')));
     signal input_sig : work.util_package.TextBlock := (others => (others => (others => '0')));
-
+    signal count : INTEGER := 0;
 begin
     key_tran(0) <= key_sig;
 
@@ -103,7 +99,6 @@ begin
             port map (
                 clk    => clk,
                 rst    => rst,
-                mode   => mode,
                 input  => text_tran(idx)(0),
                 output => text_tran(idx)(1));
         end generate;
@@ -115,7 +110,6 @@ begin
             port map (
                 clk    => clk,
                 rst    => rst,
-                mode   => mode,
                 input  => text_tran(idx)(1),
                 output => text_tran(idx)(2));
 
@@ -128,7 +122,6 @@ begin
             port map (
                 clk    => clk,
                 rst    => rst,
-                mode   => mode,
                 input  => text_tran(idx)(2),
                 output => text_tran(idx)(3));
         end generate;
@@ -149,7 +142,6 @@ begin
         port map (
             clk    => clk,
             rst    => rst,
-            mode   => mode,
             input  => text_tran(10)(0),
             output => text_tran(10)(1));
 
@@ -157,7 +149,6 @@ begin
         port map (
             clk    => clk,
             rst    => rst,
-            mode   => mode,
             input  => text_tran(10)(1),
             output => text_tran(10)(2));
 
@@ -169,9 +160,18 @@ begin
             input  => text_tran(10)(2),
             output => text_tran(10)(3));
             
-    process(clk)
+    process(clk, rst)
         begin
-        if (rising_edge(clk)) then
+        if (rst = '1') then
+            count <= 0;
+            done  <= '0';
+        elsif (rising_edge(clk)) then
+            if (count < 45) then
+                count <= count + 1;
+            else 
+                count <= 0;
+                done  <= '1';
+            end if;
             for row in 0 to 3 loop
                 for col in 0 to 3 loop
                     key_sig(4-row)(4-col) <= key(((row*4) +col +1) *8 -1 downto ((row*4) +col) *8);

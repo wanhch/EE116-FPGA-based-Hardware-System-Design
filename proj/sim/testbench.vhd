@@ -17,7 +17,6 @@ architecture bhv of testbench is
     Port ( 
         clk   : in  STD_LOGIC;
         rst   : in  STD_LOGIC;
-        mode  : in  STD_LOGIC; -- '0': encryption, '1': decryption
         key   : in  STD_LOGIC_VECTOR(127 downto 0);
         input : in  STD_LOGIC_VECTOR(127 downto 0);
         done  : out STD_LOGIC := '0';
@@ -25,7 +24,6 @@ architecture bhv of testbench is
     end component;
     signal clk  : STD_LOGIC := '0';
     signal rst  : STD_LOGIC := '1';
-    signal mode : STD_LOGIC := '0';
     signal key  : STD_LOGIC_VECTOR(127 downto 0) := X"d719b01e6d4a4fd17c731f4ae97bc05a";
     signal input: STD_LOGIC_VECTOR(127 downto 0) := X"310d7b9c36edca5bbc02dbb5de3d52b6";
     signal done : STD_LOGIC;
@@ -36,7 +34,6 @@ begin
         port map( 
             clk    => clk,
             rst    => rst,
-            mode   => mode, -- '0': encryption, '1': decryption
             key    => key,
             input  => input,
             done   => done,
