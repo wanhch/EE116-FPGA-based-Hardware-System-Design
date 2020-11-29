@@ -9,23 +9,23 @@ entity AddRoundKey is
     Port ( 
         clk   : in  STD_LOGIC;
         rst   : in  STD_LOGIC;
-        key   : in  STD_LOGIC_VECTOR(127 downto 0);
-        input : in  STD_LOGIC_VECTOR(127 downto 0);
-        output: out STD_LOGIC_VECTOR(127 downto 0) := (others => '0'));
+        key   : in  KeyBlock;
+        input : in  TextBlock;
+        output: out TextBlock := (others => (others => (others => '0'))));
 end AddRoundKey;
 
 architecture bhv of AddRoundKey is
-    signal reg: STD_LOGIC_VECTOR(127 downto 0) := (others => '0');
+    signal reg: TextBlock := (others => (others => (others => '0')));
 begin
     output <= reg;
     process(clk, rst)
     begin
         if (rst = '1') then
-            reg <= (others => '0');
+            reg <= (others => (others => (others => '0')));
         elsif (rising_edge(clk)) then
-            for row in 0 to 3 loop
-                for col in 0 to 3 loop
-                    reg((row*4 + col)*8 +7 downto (row*4 + col)*8) <= input((row*4 + col)*8 +7 downto (row*4 + col)*8) xor key((col*4 + row)*8 +7 downto (col*4 + row)*8);
+            for row in 1 to 4 loop
+                for col in 1 to 4 loop
+                    reg(row)(col) <= input(row)(col) xor key(row)(col);
                 end loop;
             end loop;
         end if;

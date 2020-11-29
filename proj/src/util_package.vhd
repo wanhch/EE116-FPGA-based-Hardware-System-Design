@@ -3,45 +3,62 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 package util_package is
-    type RcLine is array(1 to 10) of UNSIGNED(31 downto 0);
-    constant Rc: RcLine := (TO_UNSIGNED(16#01000000#, 32), TO_UNSIGNED(16#02000000#, 32), TO_UNSIGNED(16#04000000#, 32), TO_UNSIGNED(16#08000000#, 32), TO_UNSIGNED(16#10000000#, 32), TO_UNSIGNED(16#20000000#, 32), TO_UNSIGNED(16#40000000#, 32), TO_UNSIGNED(-2147483648, 32), TO_UNSIGNED(16#1b000000#, 32), TO_UNSIGNED(16#36000000#, 32)); 
+    type RcLine is array(1 to 10) of STD_LOGIC_VECTOR(7 downto 0);
+    constant Rc: RcLine := (X"01", X"02", X"04", X"08", X"10", X"20", X"40", X"80", X"1b", X"36"); 
 
-    type SboxLine is array(0 to 15) of UNSIGNED(7 downto 0);
+    type Word is array(1 to 4) of STD_LOGIC_VECTOR(7 downto 0);
+    type KeyBlock is array(1 to 4) of Word;
+    type TextBlock is array(1 to 4) of Word;
+
+    type MCLine is array(1 to 4) of STD_LOGIC_VECTOR(7 downto 0);
+    type MCMatrix is array(1 to 4) of MCLine;
+    constant MixColumns_Table: MCMatrix := (
+        (X"02", X"03", X"01", X"01"),
+        (X"01", X"02", X"03", X"01"),
+        (X"01", X"01", X"02", X"03"),
+        (X"03", X"01", X"01", X"02"));
+    constant invMixColumns_Table: MCMatrix := (
+        (X"0e", X"0b", X"0d", X"09"),
+        (X"09", X"0e", X"0b", X"0d"),
+        (X"0d", X"09", X"0e", X"0b"),
+        (X"0b", X"0d", X"09", X"0e"));
+
+    type SboxLine   is array(0 to 15) of STD_LOGIC_VECTOR(7 downto 0);
     type SboxMatrix is array(0 to 15) of SboxLine;
     constant SubBytes_Table: SboxMatrix := (
-        (TO_UNSIGNED(16#63#, 8), TO_UNSIGNED(16#7c#, 8), TO_UNSIGNED(16#77#, 8), TO_UNSIGNED(16#7b#, 8), TO_UNSIGNED(16#f2#, 8), TO_UNSIGNED(16#6b#, 8), TO_UNSIGNED(16#6f#, 8), TO_UNSIGNED(16#c5#, 8), TO_UNSIGNED(16#30#, 8), TO_UNSIGNED(16#01#, 8), TO_UNSIGNED(16#67#, 8), TO_UNSIGNED(16#2b#, 8), TO_UNSIGNED(16#fe#, 8), TO_UNSIGNED(16#d7#, 8), TO_UNSIGNED(16#ab#, 8), TO_UNSIGNED(16#76#, 8)),
-        (TO_UNSIGNED(16#ca#, 8), TO_UNSIGNED(16#82#, 8), TO_UNSIGNED(16#c9#, 8), TO_UNSIGNED(16#7d#, 8), TO_UNSIGNED(16#fa#, 8), TO_UNSIGNED(16#59#, 8), TO_UNSIGNED(16#47#, 8), TO_UNSIGNED(16#f0#, 8), TO_UNSIGNED(16#ad#, 8), TO_UNSIGNED(16#d4#, 8), TO_UNSIGNED(16#a2#, 8), TO_UNSIGNED(16#af#, 8), TO_UNSIGNED(16#9c#, 8), TO_UNSIGNED(16#a4#, 8), TO_UNSIGNED(16#72#, 8), TO_UNSIGNED(16#c0#, 8)),
-        (TO_UNSIGNED(16#b7#, 8), TO_UNSIGNED(16#fd#, 8), TO_UNSIGNED(16#93#, 8), TO_UNSIGNED(16#26#, 8), TO_UNSIGNED(16#36#, 8), TO_UNSIGNED(16#3f#, 8), TO_UNSIGNED(16#f7#, 8), TO_UNSIGNED(16#cc#, 8), TO_UNSIGNED(16#34#, 8), TO_UNSIGNED(16#a5#, 8), TO_UNSIGNED(16#e5#, 8), TO_UNSIGNED(16#f1#, 8), TO_UNSIGNED(16#71#, 8), TO_UNSIGNED(16#d8#, 8), TO_UNSIGNED(16#31#, 8), TO_UNSIGNED(16#15#, 8)),
-        (TO_UNSIGNED(16#04#, 8), TO_UNSIGNED(16#c7#, 8), TO_UNSIGNED(16#23#, 8), TO_UNSIGNED(16#c3#, 8), TO_UNSIGNED(16#18#, 8), TO_UNSIGNED(16#96#, 8), TO_UNSIGNED(16#05#, 8), TO_UNSIGNED(16#9a#, 8), TO_UNSIGNED(16#07#, 8), TO_UNSIGNED(16#12#, 8), TO_UNSIGNED(16#80#, 8), TO_UNSIGNED(16#e2#, 8), TO_UNSIGNED(16#eb#, 8), TO_UNSIGNED(16#27#, 8), TO_UNSIGNED(16#b2#, 8), TO_UNSIGNED(16#75#, 8)),
-        (TO_UNSIGNED(16#09#, 8), TO_UNSIGNED(16#83#, 8), TO_UNSIGNED(16#2c#, 8), TO_UNSIGNED(16#1a#, 8), TO_UNSIGNED(16#1b#, 8), TO_UNSIGNED(16#6e#, 8), TO_UNSIGNED(16#5a#, 8), TO_UNSIGNED(16#a0#, 8), TO_UNSIGNED(16#52#, 8), TO_UNSIGNED(16#3b#, 8), TO_UNSIGNED(16#d6#, 8), TO_UNSIGNED(16#b3#, 8), TO_UNSIGNED(16#29#, 8), TO_UNSIGNED(16#e3#, 8), TO_UNSIGNED(16#2f#, 8), TO_UNSIGNED(16#84#, 8)),
-        (TO_UNSIGNED(16#53#, 8), TO_UNSIGNED(16#d1#, 8), TO_UNSIGNED(16#00#, 8), TO_UNSIGNED(16#ed#, 8), TO_UNSIGNED(16#20#, 8), TO_UNSIGNED(16#fc#, 8), TO_UNSIGNED(16#b1#, 8), TO_UNSIGNED(16#5b#, 8), TO_UNSIGNED(16#6a#, 8), TO_UNSIGNED(16#cb#, 8), TO_UNSIGNED(16#be#, 8), TO_UNSIGNED(16#39#, 8), TO_UNSIGNED(16#4a#, 8), TO_UNSIGNED(16#4c#, 8), TO_UNSIGNED(16#58#, 8), TO_UNSIGNED(16#cf#, 8)),
-        (TO_UNSIGNED(16#d0#, 8), TO_UNSIGNED(16#ef#, 8), TO_UNSIGNED(16#aa#, 8), TO_UNSIGNED(16#fb#, 8), TO_UNSIGNED(16#43#, 8), TO_UNSIGNED(16#4d#, 8), TO_UNSIGNED(16#33#, 8), TO_UNSIGNED(16#85#, 8), TO_UNSIGNED(16#45#, 8), TO_UNSIGNED(16#f9#, 8), TO_UNSIGNED(16#02#, 8), TO_UNSIGNED(16#7f#, 8), TO_UNSIGNED(16#50#, 8), TO_UNSIGNED(16#3c#, 8), TO_UNSIGNED(16#9f#, 8), TO_UNSIGNED(16#a8#, 8)),
-        (TO_UNSIGNED(16#51#, 8), TO_UNSIGNED(16#a3#, 8), TO_UNSIGNED(16#40#, 8), TO_UNSIGNED(16#8f#, 8), TO_UNSIGNED(16#92#, 8), TO_UNSIGNED(16#9d#, 8), TO_UNSIGNED(16#38#, 8), TO_UNSIGNED(16#f5#, 8), TO_UNSIGNED(16#bc#, 8), TO_UNSIGNED(16#b6#, 8), TO_UNSIGNED(16#da#, 8), TO_UNSIGNED(16#21#, 8), TO_UNSIGNED(16#10#, 8), TO_UNSIGNED(16#ff#, 8), TO_UNSIGNED(16#f3#, 8), TO_UNSIGNED(16#d2#, 8)),
-        (TO_UNSIGNED(16#cd#, 8), TO_UNSIGNED(16#0c#, 8), TO_UNSIGNED(16#13#, 8), TO_UNSIGNED(16#ec#, 8), TO_UNSIGNED(16#5f#, 8), TO_UNSIGNED(16#97#, 8), TO_UNSIGNED(16#44#, 8), TO_UNSIGNED(16#17#, 8), TO_UNSIGNED(16#c4#, 8), TO_UNSIGNED(16#a7#, 8), TO_UNSIGNED(16#7e#, 8), TO_UNSIGNED(16#3d#, 8), TO_UNSIGNED(16#64#, 8), TO_UNSIGNED(16#5d#, 8), TO_UNSIGNED(16#19#, 8), TO_UNSIGNED(16#73#, 8)),
-        (TO_UNSIGNED(16#60#, 8), TO_UNSIGNED(16#81#, 8), TO_UNSIGNED(16#4f#, 8), TO_UNSIGNED(16#dc#, 8), TO_UNSIGNED(16#22#, 8), TO_UNSIGNED(16#2a#, 8), TO_UNSIGNED(16#90#, 8), TO_UNSIGNED(16#88#, 8), TO_UNSIGNED(16#46#, 8), TO_UNSIGNED(16#ee#, 8), TO_UNSIGNED(16#b8#, 8), TO_UNSIGNED(16#14#, 8), TO_UNSIGNED(16#de#, 8), TO_UNSIGNED(16#5e#, 8), TO_UNSIGNED(16#0b#, 8), TO_UNSIGNED(16#db#, 8)),
-        (TO_UNSIGNED(16#e0#, 8), TO_UNSIGNED(16#32#, 8), TO_UNSIGNED(16#3a#, 8), TO_UNSIGNED(16#0a#, 8), TO_UNSIGNED(16#49#, 8), TO_UNSIGNED(16#06#, 8), TO_UNSIGNED(16#24#, 8), TO_UNSIGNED(16#5c#, 8), TO_UNSIGNED(16#c2#, 8), TO_UNSIGNED(16#d3#, 8), TO_UNSIGNED(16#ac#, 8), TO_UNSIGNED(16#62#, 8), TO_UNSIGNED(16#91#, 8), TO_UNSIGNED(16#95#, 8), TO_UNSIGNED(16#e4#, 8), TO_UNSIGNED(16#79#, 8)),
-        (TO_UNSIGNED(16#e7#, 8), TO_UNSIGNED(16#c8#, 8), TO_UNSIGNED(16#37#, 8), TO_UNSIGNED(16#6d#, 8), TO_UNSIGNED(16#8d#, 8), TO_UNSIGNED(16#d5#, 8), TO_UNSIGNED(16#4e#, 8), TO_UNSIGNED(16#a9#, 8), TO_UNSIGNED(16#6c#, 8), TO_UNSIGNED(16#56#, 8), TO_UNSIGNED(16#f4#, 8), TO_UNSIGNED(16#ea#, 8), TO_UNSIGNED(16#65#, 8), TO_UNSIGNED(16#7a#, 8), TO_UNSIGNED(16#ae#, 8), TO_UNSIGNED(16#08#, 8)),
-        (TO_UNSIGNED(16#ba#, 8), TO_UNSIGNED(16#78#, 8), TO_UNSIGNED(16#25#, 8), TO_UNSIGNED(16#2e#, 8), TO_UNSIGNED(16#1c#, 8), TO_UNSIGNED(16#a6#, 8), TO_UNSIGNED(16#b4#, 8), TO_UNSIGNED(16#c6#, 8), TO_UNSIGNED(16#e8#, 8), TO_UNSIGNED(16#dd#, 8), TO_UNSIGNED(16#74#, 8), TO_UNSIGNED(16#1f#, 8), TO_UNSIGNED(16#4b#, 8), TO_UNSIGNED(16#bd#, 8), TO_UNSIGNED(16#8b#, 8), TO_UNSIGNED(16#8a#, 8)),
-        (TO_UNSIGNED(16#70#, 8), TO_UNSIGNED(16#3e#, 8), TO_UNSIGNED(16#b5#, 8), TO_UNSIGNED(16#66#, 8), TO_UNSIGNED(16#48#, 8), TO_UNSIGNED(16#03#, 8), TO_UNSIGNED(16#f6#, 8), TO_UNSIGNED(16#0e#, 8), TO_UNSIGNED(16#61#, 8), TO_UNSIGNED(16#35#, 8), TO_UNSIGNED(16#57#, 8), TO_UNSIGNED(16#b9#, 8), TO_UNSIGNED(16#86#, 8), TO_UNSIGNED(16#c1#, 8), TO_UNSIGNED(16#1d#, 8), TO_UNSIGNED(16#9e#, 8)),
-        (TO_UNSIGNED(16#e1#, 8), TO_UNSIGNED(16#f8#, 8), TO_UNSIGNED(16#98#, 8), TO_UNSIGNED(16#11#, 8), TO_UNSIGNED(16#69#, 8), TO_UNSIGNED(16#d9#, 8), TO_UNSIGNED(16#8e#, 8), TO_UNSIGNED(16#94#, 8), TO_UNSIGNED(16#9b#, 8), TO_UNSIGNED(16#1e#, 8), TO_UNSIGNED(16#87#, 8), TO_UNSIGNED(16#e9#, 8), TO_UNSIGNED(16#ce#, 8), TO_UNSIGNED(16#55#, 8), TO_UNSIGNED(16#28#, 8), TO_UNSIGNED(16#df#, 8)),
-        (TO_UNSIGNED(16#8c#, 8), TO_UNSIGNED(16#a1#, 8), TO_UNSIGNED(16#89#, 8), TO_UNSIGNED(16#0d#, 8), TO_UNSIGNED(16#bf#, 8), TO_UNSIGNED(16#e6#, 8), TO_UNSIGNED(16#42#, 8), TO_UNSIGNED(16#68#, 8), TO_UNSIGNED(16#41#, 8), TO_UNSIGNED(16#99#, 8), TO_UNSIGNED(16#2d#, 8), TO_UNSIGNED(16#0f#, 8), TO_UNSIGNED(16#b0#, 8), TO_UNSIGNED(16#54#, 8), TO_UNSIGNED(16#bb#, 8), TO_UNSIGNED(16#16#, 8)));
+        (X"63", X"7c", X"77", X"7b", X"f2", X"6b", X"6f", X"c5", X"30", X"01", X"67", X"2b", X"fe", X"d7", X"ab", X"76"),
+        (X"ca", X"82", X"c9", X"7d", X"fa", X"59", X"47", X"f0", X"ad", X"d4", X"a2", X"af", X"9c", X"a4", X"72", X"c0"),
+        (X"b7", X"fd", X"93", X"26", X"36", X"3f", X"f7", X"cc", X"34", X"a5", X"e5", X"f1", X"71", X"d8", X"31", X"15"),
+        (X"04", X"c7", X"23", X"c3", X"18", X"96", X"05", X"9a", X"07", X"12", X"80", X"e2", X"eb", X"27", X"b2", X"75"),
+        (X"09", X"83", X"2c", X"1a", X"1b", X"6e", X"5a", X"a0", X"52", X"3b", X"d6", X"b3", X"29", X"e3", X"2f", X"84"),
+        (X"53", X"d1", X"00", X"ed", X"20", X"fc", X"b1", X"5b", X"6a", X"cb", X"be", X"39", X"4a", X"4c", X"58", X"cf"),
+        (X"d0", X"ef", X"aa", X"fb", X"43", X"4d", X"33", X"85", X"45", X"f9", X"02", X"7f", X"50", X"3c", X"9f", X"a8"),
+        (X"51", X"a3", X"40", X"8f", X"92", X"9d", X"38", X"f5", X"bc", X"b6", X"da", X"21", X"10", X"ff", X"f3", X"d2"),
+        (X"cd", X"0c", X"13", X"ec", X"5f", X"97", X"44", X"17", X"c4", X"a7", X"7e", X"3d", X"64", X"5d", X"19", X"73"),
+        (X"60", X"81", X"4f", X"dc", X"22", X"2a", X"90", X"88", X"46", X"ee", X"b8", X"14", X"de", X"5e", X"0b", X"db"),
+        (X"e0", X"32", X"3a", X"0a", X"49", X"06", X"24", X"5c", X"c2", X"d3", X"ac", X"62", X"91", X"95", X"e4", X"79"),
+        (X"e7", X"c8", X"37", X"6d", X"8d", X"d5", X"4e", X"a9", X"6c", X"56", X"f4", X"ea", X"65", X"7a", X"ae", X"08"),
+        (X"ba", X"78", X"25", X"2e", X"1c", X"a6", X"b4", X"c6", X"e8", X"dd", X"74", X"1f", X"4b", X"bd", X"8b", X"8a"),
+        (X"70", X"3e", X"b5", X"66", X"48", X"03", X"f6", X"0e", X"61", X"35", X"57", X"b9", X"86", X"c1", X"1d", X"9e"),
+        (X"e1", X"f8", X"98", X"11", X"69", X"d9", X"8e", X"94", X"9b", X"1e", X"87", X"e9", X"ce", X"55", X"28", X"df"),
+        (X"8c", X"a1", X"89", X"0d", X"bf", X"e6", X"42", X"68", X"41", X"99", X"2d", X"0f", X"b0", X"54", X"bb", X"16"));
     constant invSubBytes_Table: SboxMatrix := (
-        (TO_UNSIGNED(16#52#, 8), TO_UNSIGNED(16#09#, 8), TO_UNSIGNED(16#6a#, 8), TO_UNSIGNED(16#d5#, 8), TO_UNSIGNED(16#30#, 8), TO_UNSIGNED(16#36#, 8), TO_UNSIGNED(16#a5#, 8), TO_UNSIGNED(16#38#, 8), TO_UNSIGNED(16#bf#, 8), TO_UNSIGNED(16#40#, 8), TO_UNSIGNED(16#a3#, 8), TO_UNSIGNED(16#9e#, 8), TO_UNSIGNED(16#81#, 8), TO_UNSIGNED(16#f3#, 8), TO_UNSIGNED(16#d7#, 8), TO_UNSIGNED(16#fb#, 8)),
-        (TO_UNSIGNED(16#7c#, 8), TO_UNSIGNED(16#e3#, 8), TO_UNSIGNED(16#39#, 8), TO_UNSIGNED(16#82#, 8), TO_UNSIGNED(16#9b#, 8), TO_UNSIGNED(16#2f#, 8), TO_UNSIGNED(16#ff#, 8), TO_UNSIGNED(16#87#, 8), TO_UNSIGNED(16#34#, 8), TO_UNSIGNED(16#8e#, 8), TO_UNSIGNED(16#43#, 8), TO_UNSIGNED(16#44#, 8), TO_UNSIGNED(16#c4#, 8), TO_UNSIGNED(16#de#, 8), TO_UNSIGNED(16#e9#, 8), TO_UNSIGNED(16#cb#, 8)),
-        (TO_UNSIGNED(16#54#, 8), TO_UNSIGNED(16#7b#, 8), TO_UNSIGNED(16#94#, 8), TO_UNSIGNED(16#32#, 8), TO_UNSIGNED(16#a6#, 8), TO_UNSIGNED(16#c2#, 8), TO_UNSIGNED(16#23#, 8), TO_UNSIGNED(16#3d#, 8), TO_UNSIGNED(16#ee#, 8), TO_UNSIGNED(16#4c#, 8), TO_UNSIGNED(16#95#, 8), TO_UNSIGNED(16#0b#, 8), TO_UNSIGNED(16#42#, 8), TO_UNSIGNED(16#fa#, 8), TO_UNSIGNED(16#c3#, 8), TO_UNSIGNED(16#4e#, 8)),
-        (TO_UNSIGNED(16#08#, 8), TO_UNSIGNED(16#2e#, 8), TO_UNSIGNED(16#a1#, 8), TO_UNSIGNED(16#66#, 8), TO_UNSIGNED(16#28#, 8), TO_UNSIGNED(16#d9#, 8), TO_UNSIGNED(16#24#, 8), TO_UNSIGNED(16#b2#, 8), TO_UNSIGNED(16#76#, 8), TO_UNSIGNED(16#5b#, 8), TO_UNSIGNED(16#a2#, 8), TO_UNSIGNED(16#49#, 8), TO_UNSIGNED(16#6d#, 8), TO_UNSIGNED(16#8b#, 8), TO_UNSIGNED(16#d1#, 8), TO_UNSIGNED(16#25#, 8)),
-        (TO_UNSIGNED(16#72#, 8), TO_UNSIGNED(16#f8#, 8), TO_UNSIGNED(16#f6#, 8), TO_UNSIGNED(16#64#, 8), TO_UNSIGNED(16#86#, 8), TO_UNSIGNED(16#68#, 8), TO_UNSIGNED(16#98#, 8), TO_UNSIGNED(16#16#, 8), TO_UNSIGNED(16#d4#, 8), TO_UNSIGNED(16#a4#, 8), TO_UNSIGNED(16#5c#, 8), TO_UNSIGNED(16#cc#, 8), TO_UNSIGNED(16#5d#, 8), TO_UNSIGNED(16#65#, 8), TO_UNSIGNED(16#b6#, 8), TO_UNSIGNED(16#92#, 8)),
-        (TO_UNSIGNED(16#6c#, 8), TO_UNSIGNED(16#70#, 8), TO_UNSIGNED(16#48#, 8), TO_UNSIGNED(16#50#, 8), TO_UNSIGNED(16#fd#, 8), TO_UNSIGNED(16#ed#, 8), TO_UNSIGNED(16#b9#, 8), TO_UNSIGNED(16#da#, 8), TO_UNSIGNED(16#5e#, 8), TO_UNSIGNED(16#15#, 8), TO_UNSIGNED(16#46#, 8), TO_UNSIGNED(16#57#, 8), TO_UNSIGNED(16#a7#, 8), TO_UNSIGNED(16#8d#, 8), TO_UNSIGNED(16#9d#, 8), TO_UNSIGNED(16#84#, 8)),
-        (TO_UNSIGNED(16#90#, 8), TO_UNSIGNED(16#d8#, 8), TO_UNSIGNED(16#ab#, 8), TO_UNSIGNED(16#00#, 8), TO_UNSIGNED(16#8c#, 8), TO_UNSIGNED(16#bc#, 8), TO_UNSIGNED(16#d3#, 8), TO_UNSIGNED(16#0a#, 8), TO_UNSIGNED(16#f7#, 8), TO_UNSIGNED(16#e4#, 8), TO_UNSIGNED(16#58#, 8), TO_UNSIGNED(16#05#, 8), TO_UNSIGNED(16#b8#, 8), TO_UNSIGNED(16#b3#, 8), TO_UNSIGNED(16#45#, 8), TO_UNSIGNED(16#06#, 8)),
-        (TO_UNSIGNED(16#d0#, 8), TO_UNSIGNED(16#2c#, 8), TO_UNSIGNED(16#1e#, 8), TO_UNSIGNED(16#8f#, 8), TO_UNSIGNED(16#ca#, 8), TO_UNSIGNED(16#3f#, 8), TO_UNSIGNED(16#0f#, 8), TO_UNSIGNED(16#02#, 8), TO_UNSIGNED(16#c1#, 8), TO_UNSIGNED(16#af#, 8), TO_UNSIGNED(16#bd#, 8), TO_UNSIGNED(16#03#, 8), TO_UNSIGNED(16#01#, 8), TO_UNSIGNED(16#13#, 8), TO_UNSIGNED(16#8a#, 8), TO_UNSIGNED(16#6b#, 8)),
-        (TO_UNSIGNED(16#3a#, 8), TO_UNSIGNED(16#91#, 8), TO_UNSIGNED(16#11#, 8), TO_UNSIGNED(16#41#, 8), TO_UNSIGNED(16#4f#, 8), TO_UNSIGNED(16#67#, 8), TO_UNSIGNED(16#dc#, 8), TO_UNSIGNED(16#ea#, 8), TO_UNSIGNED(16#97#, 8), TO_UNSIGNED(16#f2#, 8), TO_UNSIGNED(16#cf#, 8), TO_UNSIGNED(16#ce#, 8), TO_UNSIGNED(16#f0#, 8), TO_UNSIGNED(16#b4#, 8), TO_UNSIGNED(16#e6#, 8), TO_UNSIGNED(16#73#, 8)),
-        (TO_UNSIGNED(16#96#, 8), TO_UNSIGNED(16#ac#, 8), TO_UNSIGNED(16#74#, 8), TO_UNSIGNED(16#22#, 8), TO_UNSIGNED(16#e7#, 8), TO_UNSIGNED(16#ad#, 8), TO_UNSIGNED(16#35#, 8), TO_UNSIGNED(16#85#, 8), TO_UNSIGNED(16#e2#, 8), TO_UNSIGNED(16#f9#, 8), TO_UNSIGNED(16#37#, 8), TO_UNSIGNED(16#e8#, 8), TO_UNSIGNED(16#1c#, 8), TO_UNSIGNED(16#75#, 8), TO_UNSIGNED(16#df#, 8), TO_UNSIGNED(16#6e#, 8)),
-        (TO_UNSIGNED(16#47#, 8), TO_UNSIGNED(16#f1#, 8), TO_UNSIGNED(16#1a#, 8), TO_UNSIGNED(16#71#, 8), TO_UNSIGNED(16#1d#, 8), TO_UNSIGNED(16#29#, 8), TO_UNSIGNED(16#c5#, 8), TO_UNSIGNED(16#89#, 8), TO_UNSIGNED(16#6f#, 8), TO_UNSIGNED(16#b7#, 8), TO_UNSIGNED(16#62#, 8), TO_UNSIGNED(16#0e#, 8), TO_UNSIGNED(16#aa#, 8), TO_UNSIGNED(16#18#, 8), TO_UNSIGNED(16#be#, 8), TO_UNSIGNED(16#1b#, 8)),
-        (TO_UNSIGNED(16#fc#, 8), TO_UNSIGNED(16#56#, 8), TO_UNSIGNED(16#3e#, 8), TO_UNSIGNED(16#4b#, 8), TO_UNSIGNED(16#c6#, 8), TO_UNSIGNED(16#d2#, 8), TO_UNSIGNED(16#79#, 8), TO_UNSIGNED(16#20#, 8), TO_UNSIGNED(16#9a#, 8), TO_UNSIGNED(16#db#, 8), TO_UNSIGNED(16#c0#, 8), TO_UNSIGNED(16#fe#, 8), TO_UNSIGNED(16#78#, 8), TO_UNSIGNED(16#cd#, 8), TO_UNSIGNED(16#5a#, 8), TO_UNSIGNED(16#f4#, 8)),
-        (TO_UNSIGNED(16#1f#, 8), TO_UNSIGNED(16#dd#, 8), TO_UNSIGNED(16#a8#, 8), TO_UNSIGNED(16#33#, 8), TO_UNSIGNED(16#88#, 8), TO_UNSIGNED(16#07#, 8), TO_UNSIGNED(16#c7#, 8), TO_UNSIGNED(16#31#, 8), TO_UNSIGNED(16#b1#, 8), TO_UNSIGNED(16#12#, 8), TO_UNSIGNED(16#10#, 8), TO_UNSIGNED(16#59#, 8), TO_UNSIGNED(16#27#, 8), TO_UNSIGNED(16#80#, 8), TO_UNSIGNED(16#ec#, 8), TO_UNSIGNED(16#5f#, 8)),
-        (TO_UNSIGNED(16#60#, 8), TO_UNSIGNED(16#51#, 8), TO_UNSIGNED(16#7f#, 8), TO_UNSIGNED(16#a9#, 8), TO_UNSIGNED(16#19#, 8), TO_UNSIGNED(16#b5#, 8), TO_UNSIGNED(16#4a#, 8), TO_UNSIGNED(16#0d#, 8), TO_UNSIGNED(16#2d#, 8), TO_UNSIGNED(16#e5#, 8), TO_UNSIGNED(16#7a#, 8), TO_UNSIGNED(16#9f#, 8), TO_UNSIGNED(16#93#, 8), TO_UNSIGNED(16#c9#, 8), TO_UNSIGNED(16#9c#, 8), TO_UNSIGNED(16#ef#, 8)),
-        (TO_UNSIGNED(16#a0#, 8), TO_UNSIGNED(16#e0#, 8), TO_UNSIGNED(16#3b#, 8), TO_UNSIGNED(16#4d#, 8), TO_UNSIGNED(16#ae#, 8), TO_UNSIGNED(16#2a#, 8), TO_UNSIGNED(16#f5#, 8), TO_UNSIGNED(16#b0#, 8), TO_UNSIGNED(16#c8#, 8), TO_UNSIGNED(16#eb#, 8), TO_UNSIGNED(16#bb#, 8), TO_UNSIGNED(16#3c#, 8), TO_UNSIGNED(16#83#, 8), TO_UNSIGNED(16#53#, 8), TO_UNSIGNED(16#99#, 8), TO_UNSIGNED(16#61#, 8)),
-        (TO_UNSIGNED(16#17#, 8), TO_UNSIGNED(16#2b#, 8), TO_UNSIGNED(16#04#, 8), TO_UNSIGNED(16#7e#, 8), TO_UNSIGNED(16#ba#, 8), TO_UNSIGNED(16#77#, 8), TO_UNSIGNED(16#d6#, 8), TO_UNSIGNED(16#26#, 8), TO_UNSIGNED(16#e1#, 8), TO_UNSIGNED(16#69#, 8), TO_UNSIGNED(16#14#, 8), TO_UNSIGNED(16#63#, 8), TO_UNSIGNED(16#55#, 8), TO_UNSIGNED(16#21#, 8), TO_UNSIGNED(16#0c#, 8), TO_UNSIGNED(16#7d#, 8))); 
+        (X"52", X"09", X"6a", X"d5", X"30", X"36", X"a5", X"38", X"bf", X"40", X"a3", X"9e", X"81", X"f3", X"d7", X"fb"),
+        (X"7c", X"e3", X"39", X"82", X"9b", X"2f", X"ff", X"87", X"34", X"8e", X"43", X"44", X"c4", X"de", X"e9", X"cb"),
+        (X"54", X"7b", X"94", X"32", X"a6", X"c2", X"23", X"3d", X"ee", X"4c", X"95", X"0b", X"42", X"fa", X"c3", X"4e"),
+        (X"08", X"2e", X"a1", X"66", X"28", X"d9", X"24", X"b2", X"76", X"5b", X"a2", X"49", X"6d", X"8b", X"d1", X"25"),
+        (X"72", X"f8", X"f6", X"64", X"86", X"68", X"98", X"16", X"d4", X"a4", X"5c", X"cc", X"5d", X"65", X"b6", X"92"),
+        (X"6c", X"70", X"48", X"50", X"fd", X"ed", X"b9", X"da", X"5e", X"15", X"46", X"57", X"a7", X"8d", X"9d", X"84"),
+        (X"90", X"d8", X"ab", X"00", X"8c", X"bc", X"d3", X"0a", X"f7", X"e4", X"58", X"05", X"b8", X"b3", X"45", X"06"),
+        (X"d0", X"2c", X"1e", X"8f", X"ca", X"3f", X"0f", X"02", X"c1", X"af", X"bd", X"03", X"01", X"13", X"8a", X"6b"),
+        (X"3a", X"91", X"11", X"41", X"4f", X"67", X"dc", X"ea", X"97", X"f2", X"cf", X"ce", X"f0", X"b4", X"e6", X"73"),
+        (X"96", X"ac", X"74", X"22", X"e7", X"ad", X"35", X"85", X"e2", X"f9", X"37", X"e8", X"1c", X"75", X"df", X"6e"),
+        (X"47", X"f1", X"1a", X"71", X"1d", X"29", X"c5", X"89", X"6f", X"b7", X"62", X"0e", X"aa", X"18", X"be", X"1b"),
+        (X"fc", X"56", X"3e", X"4b", X"c6", X"d2", X"79", X"20", X"9a", X"db", X"c0", X"fe", X"78", X"cd", X"5a", X"f4"),
+        (X"1f", X"dd", X"a8", X"33", X"88", X"07", X"c7", X"31", X"b1", X"12", X"10", X"59", X"27", X"80", X"ec", X"5f"),
+        (X"60", X"51", X"7f", X"a9", X"19", X"b5", X"4a", X"0d", X"2d", X"e5", X"7a", X"9f", X"93", X"c9", X"9c", X"ef"),
+        (X"a0", X"e0", X"3b", X"4d", X"ae", X"2a", X"f5", X"b0", X"c8", X"eb", X"bb", X"3c", X"83", X"53", X"99", X"61"),
+        (X"17", X"2b", X"04", X"7e", X"ba", X"77", X"d6", X"26", X"e1", X"69", X"14", X"63", X"55", X"21", X"0c", X"7d")); 
 
     function gmult(a: STD_LOGIC_VECTOR(7 downto 0); b: STD_LOGIC_VECTOR(7 downto 0)) return STD_LOGIC_VECTOR;
 end util_package;
@@ -49,19 +66,19 @@ end util_package;
 package body util_package is
 
 function gmult(a: STD_LOGIC_VECTOR(7 downto 0); b: STD_LOGIC_VECTOR(7 downto 0)) return STD_LOGIC_VECTOR is
-    variable p: STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+    variable p  : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
     variable hbs: STD_LOGIC := '0';
-    variable aa: STD_LOGIC_VECTOR(7 downto 0) := a;
-    variable bb:  STD_LOGIC_VECTOR(7 downto 0) := b;
+    variable aa : STD_LOGIC_VECTOR(7 downto 0) := a;
+    variable bb : STD_LOGIC_VECTOR(7 downto 0) := b;
 begin
     for idx in 0 to 7 loop
-        if (b(0) = '1') then
-            p := p xor a;
+        if (bb(0) = '1') then
+            p := p xor aa;
         end if;
-        hbs := a(7);
+        hbs := aa(7);
         aa(7 downto 0) := aa(6 downto 0) & '0';
         if (hbs = '1') then 
-            aa := aa xor STD_LOGIC_VECTOR(TO_UNSIGNED(16#1b#, 8));
+            aa := aa xor X"1b";
         end if;
         bb := '0' & bb(7 downto 1);
     end loop;
