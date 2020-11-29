@@ -19,18 +19,21 @@ with open("output.txt", "r") as answer_file:
 with open("../eval/AES_results_encryption_128.txt", "w") as result_file:
     idx = 0
     for line in file:
-        temp = line.split()
+        print(line)
+        temp = line.split()            
         if temp[0] == '0':
             cipher = eval("0x%s"%temp[3])
-            if(idx != 0):
-                result_file.write('\n')
+            print(result[idx].strip())
+            print(str(bin(cipher)).replace("0b", "").rjust(128, '0'))
             if (result[idx].strip()  == str(bin(cipher)).replace("0b", "").rjust(128, '0')):
                 result_file.write('P')
             else:
                 result_file.write('F')
             idx += 1
         elif temp[0] == '1':
+            result_file.write('N')
             de128 += 1
+        result_file.write('\n')
 
 with open("../eval/AES_testcases_192.txt", "r") as input_file:
     file = input_file.readlines()

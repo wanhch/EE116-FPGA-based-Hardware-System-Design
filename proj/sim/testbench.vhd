@@ -28,6 +28,8 @@ architecture bhv of testbench is
     signal init  : STD_LOGIC := '0';
     signal key   : STD_LOGIC_VECTOR(127 downto 0) := (others => '0');
     signal input : STD_LOGIC_VECTOR(127 downto 0) := (others => '0');
+--    signal key   : STD_LOGIC_VECTOR(127 downto 0) := X"e3e70682c2094cac629f6fbed82c07cd";
+--    signal input : STD_LOGIC_VECTOR(127 downto 0) := X"eb1167b367a9c3787c65c1e582e2e662";
     signal done  : STD_LOGIC;
     signal output: STD_LOGIC_VECTOR(127 downto 0) := (others => '0');
 begin
@@ -53,14 +55,9 @@ begin
             rst <= '0';
             wait;
         end process;
-
---    Init_gen: process
---        begin
---            if (done = '1') then
---                init <= '1';
---            end if;
---        end process Init_gen;
+        
     init <= done;
+    
     IO: process
         file file_in: text;
         file file_out: text;
@@ -71,21 +68,15 @@ begin
         begin
             file_open(file_status, file_in, "input.txt", read_mode);
             file_open(file_out, "output.txt", write_mode);
-            --wait until (rst = '0');
             while (not endfile(file_in)) loop
                 readline(file_in, buf_input);
                 read(buf_input, data);
                 input <= data(255 downto 128);
                 key <= data(127 downto 0);
-
                 wait until rising_edge(done);
                 write(buf_output, output);
                 writeline(file_out, buf_output);
                 wait until (done = '0');
---                init <= '0';
-
-
---                init <= '1';
             end loop;
             file_close(file_out);
             std.env.finish;

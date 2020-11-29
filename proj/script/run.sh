@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd script
 ghdl -a --ieee=synopsys --std=08 ../src/util_package.vhd
 
 ls ../src/ | while read src_file
@@ -13,4 +13,4 @@ cp ../sim/testbench.vhd testbench.vhd
 ghdl -a --ieee=synopsys --std=08 testbench.vhd
 ghdl -e --ieee=synopsys --std=08 testbench
 ghdl -r --ieee=synopsys --std=08 testbench --ieee-asserts=disable --stop-time=10000us 2>&1 | grep -v "simulation finished @*"
-./result.py
+python3 result.py
